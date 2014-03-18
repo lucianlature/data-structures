@@ -4,6 +4,7 @@ module.exports = function (grunt) {
 
 	grunt.loadNpmTasks('grunt-mocha');
 	grunt.loadNpmTasks('grunt-mocha-runner');
+	grunt.loadNpmTasks('grunt-browserify');
 
 
 	grunt.initConfig({
@@ -13,10 +14,9 @@ module.exports = function (grunt) {
 		mochaRunner: {
 			all: {
 				scripts: [
-					'src/*.js',
-					'test/*.spec.js'
-				],
-				styles: ['styles/*.css']
+					/*'./src/*.js',*/
+					'./test/test.bundle.js'
+				]
 			}
 		},
 
@@ -24,7 +24,7 @@ module.exports = function (grunt) {
 		mocha: {
 			options: {
 				run: true,
-				reporter: 'Nyan'
+				reporter: 'Spec'
 			},
 			test: {
 				options: {
@@ -32,11 +32,28 @@ module.exports = function (grunt) {
 					urls: ['http://localhost:8000']
 				}
 			}
-        }
+        },
 
+		browserify: {
+			test: {
+				// Use the specs as our dependency graph entry points.
+				src: ['test/*.spec.js'],
+				dest: 'test/test.bundle.js',
+				options: {
+					// Generate a source map for a more pleasant browser debugger experience.
+					debug: true
+				}
+			}
+		}
 	});
 
-	grunt.registerTask('default', [
+	grunt.registerTask('compile-tests',
+		'Compiles the JavaScript unit tests without running them.',
+		['browserify:test']
+    );
+
+	grunt.registerTask('test', [
+		'compile-tests',
 		'mochaRunner',
 		'mocha'
 	]);
