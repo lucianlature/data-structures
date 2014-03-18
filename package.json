@@ -1,0 +1,28 @@
+{
+  "name": "data-structures",
+  "version": "0.0.1",
+  "author": "Lucian Lature <lucian.lature@gmail.com>",
+  "description": "JavaScript data structures written in vanilla JavaScript.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lucianlature/data-structures.git"
+  },
+  "main": "./distribution/index.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "keywords": [
+    "data structure",
+    "stack"
+  ],
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-browserify2": "~0.1.8",
+    "grunt-exec": "~0.4.3",
+  },
+  "engines": {
+    "node": "*"
+  },
+  "license": "MIT"
+}
+
