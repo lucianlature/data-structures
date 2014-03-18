@@ -17,12 +17,10 @@
   ],
   "devDependencies": {
     "grunt": "~0.4.2",
-    "grunt-browserify2": "~0.1.8",
-    "grunt-exec": "~0.4.3",
+    "grunt-mocha-runner": "~0.2.0",
+    "grunt-mocha": "~0.4.10"
   },
   "engines": {
     "node": "*"
-  },
-  "license": "MIT"
+  }
 }
-
