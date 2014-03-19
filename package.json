@@ -1,28 +1,28 @@
 {
-  "name": "data-structures",
-  "version": "0.0.1",
-  "author": "Lucian Lature <lucian.lature@gmail.com>",
-  "description": "JavaScript data structures written in vanilla JavaScript.",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/lucianlature/data-structures.git"
-  },
-  "main": "./distribution/index.js",
-  "scripts": {
-    "test": "grunt test"
-  },
-  "keywords": [
-    "data structure",
-    "stack"
-  ],
-  "devDependencies": {
-    "grunt": "~0.4.2",
-    "grunt-mocha-runner": "~0.2.0",
-    "grunt-mocha": "~0.4.10",
-    "browserify": "~3.32.1",
-    "grunt-browserify": "~1.3.2"
-  },
-  "engines": {
-    "node": "*"
-  }
+	"name": "data-structures",
+	"version": "0.0.1",
+	"author": "Lucian Lature <lucian.lature@gmail.com>",
+	"description": "JavaScript data structures written in vanilla JavaScript.",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/lucianlature/data-structures.git"
+	},
+	"main": "./distribution/index.js",
+	"scripts": {
+		"test": "grunt test"
+	},
+	"keywords": [
+		"data structure",
+		"stack"
+	],
+	"devDependencies": {
+		"grunt": "~0.4.2",
+		"grunt-mocha-runner": "~0.2.0",
+		"grunt-mocha": "~0.4.10",
+		"browserify": "~3.32.1",
+		"grunt-browserify": "~1.3.2"
+	},
+	"engines": {
+		"node": "*"
+	}
 }
