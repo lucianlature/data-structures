@@ -1,12 +1,13 @@
+'use strict';
+
 var Stack = require('../src/Stack'),
-  expect = chai.expect;
+	expect = chai.expect;
 
 describe('Stack test', function() {
 
-it('should be able to use my Stack module', function() {
-    if (Stack.echo() !==  'test') {
-      throw new Error('echo method should return test');
-    }
-  });
+	it('should be able to instantiate a new Stack', function() {
+		var instance = new Stack();
+		expect(instance).to.be.an.instanceof(Stack);
+	});
 
 });
