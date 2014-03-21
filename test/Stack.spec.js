@@ -1,11 +1,10 @@
 'use strict';
 
 var Stack = require('../src/Stack'),
-	expect = chai.expect;
+	expect = chai.expect,
+	instance = null;
 
 describe('Stack test', function () {
-
-	var instance = null;
 
 	beforeEach(function (done) {
 		instance = new Stack();
@@ -33,6 +32,26 @@ describe('Stack test', function () {
 			instance.push('foo');
 			var isEmpty = instance.isEmpty();
 			expect(isEmpty).to.be.false;
+		});
+
+	});
+
+	describe('Stack push', function () {
+
+		it('should insert new items into the stack', function () {
+
+			var isEmpty = instance.isEmpty();
+			expect(isEmpty).to.be.true;
+
+			instance.push('foo');
+			instance.push('bar');
+			instance.push(7);
+			instance.push(true);
+			instance.push([]);
+			instance.push({});
+			instance.push(function(){});
+			expect(instance.size()).to.equal(7);
+
 		});
 
 	});

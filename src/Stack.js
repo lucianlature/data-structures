@@ -6,9 +6,9 @@
  * where items are added to and removed from the end called the "top".
  * Stacks are ordered LIFO.
  */
-var Stack = function () {
+function Stack() {
 	this._items = [];
-};
+}
 
 /**
  * @description Adds a new item to the top of the stack
