@@ -3,7 +3,6 @@
 module.exports = function (grunt) {
 
 	grunt.loadNpmTasks('grunt-mocha');
-	grunt.loadNpmTasks('grunt-mocha-runner');
 	grunt.loadNpmTasks('grunt-browserify');
 
 
@@ -11,26 +10,14 @@ module.exports = function (grunt) {
 
 		pkg: grunt.file.readJSON('package.json'),
 
-		mochaRunner: {
-			all: {
-				scripts: [
-					/*'./src/*.js',*/
-					'./test/test.bundle.js'
-				]
-			}
-		},
-
 		// opens the runner page to run the tests
 		mocha: {
 			options: {
 				run: true,
 				reporter: 'Spec'
 			},
-			test: {
-				options: {
-					// url to the runner page served by mochaRunner
-					urls: ['http://localhost:8000']
-				}
+			all: {
+				src: ['test/testrunner.html']
 			}
         },
 
@@ -54,7 +41,6 @@ module.exports = function (grunt) {
 
 	grunt.registerTask('test', [
 		'compile-tests',
-		'mochaRunner',
 		'mocha'
 	]);
 
