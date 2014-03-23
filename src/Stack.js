@@ -13,10 +13,19 @@ function Stack() {
 /**
  * @description Adds a new item to the top of the stack
  * @this {Stack}
- * @param  {*} item Any type of items can be added
+ * @param  {Any} item Any type of items can be added
  */
 Stack.prototype.push = function (item) {
 	this._items.push(item);
+};
+
+/**
+ * @description  Removes the top item from the stack.
+ * @param  {Any} item
+ * @return {Any} The removed item
+ */
+Stack.prototype.pop = function () {
+	return this._items.pop();
 };
 
 /**

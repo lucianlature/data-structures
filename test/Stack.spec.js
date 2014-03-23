@@ -56,4 +56,24 @@ describe('Stack test', function () {
 
 	});
 
+	describe('Stack pop', function () {
+
+		it('should remove the top item of the stack', function () {
+
+			var isEmpty = instance.isEmpty(),
+				removedItem;
+
+			expect(isEmpty).to.be.true;
+
+			instance.push('foo');
+			instance.push('bar');
+			var removedItem = instance.pop();
+
+			expect(removedItem).to.equal('bar');
+			expect(instance.size()).to.equal(1);
+
+		});
+
+	});
+
 });
