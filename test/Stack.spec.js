@@ -96,4 +96,36 @@ describe('Stack test', function () {
 		});
 	});
 
+	describe('Stack peek', function() {
+		it('should return the top item on the stack', function () {
+
+			var isEmpty = instance.isEmpty();
+			expect(isEmpty).to.be.true;
+
+			instance.push('foo');
+			instance.push('bar');
+			instance.push(7);
+
+			expect(instance.peek()).to.equal(7);
+			instance.pop();
+			expect(instance.peek()).to.equal('bar');
+			instance.pop();
+			expect(instance.peek()).to.equal('foo');
+			instance.pop(); // the stack should be empty by now
+			expect(instance.peek()).to.be.null;
+		});
+
+		it('doesn\'t modify the stack', function() {
+			var peek, size;
+			instance.push('foo');
+			instance.push('bar');
+			instance.push(7);
+
+			size = instance.size();
+			peek = instance.peek();
+			expect(instance.size()).to.equal(size);
+		});
+	});
+
+
 });

@@ -44,4 +44,16 @@ Stack.prototype.size = function () {
 	return this._items.length;
 };
 
+/**
+ * @description Returns the value of the top item from the stack but does not remove it
+ * @return {Any} The top item
+ */
+Stack.prototype.peek = function () {
+	var size = this.size();
+	if (size >= 1) {
+		return this._items[size - 1];
+	}
+	return null;
+};
+
 module.exports = Stack;
