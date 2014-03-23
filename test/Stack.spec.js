@@ -37,7 +37,6 @@ describe('Stack test', function () {
 	});
 
 	describe('Stack push', function () {
-
 		it('should insert new items into the stack', function () {
 
 			var isEmpty = instance.isEmpty();
@@ -53,11 +52,9 @@ describe('Stack test', function () {
 			expect(instance.size()).to.equal(7);
 
 		});
-
 	});
 
 	describe('Stack pop', function () {
-
 		it('should remove the top item of the stack', function () {
 
 			var isEmpty = instance.isEmpty(),
@@ -67,13 +64,36 @@ describe('Stack test', function () {
 
 			instance.push('foo');
 			instance.push('bar');
-			var removedItem = instance.pop();
+			removedItem = instance.pop();
 
 			expect(removedItem).to.equal('bar');
 			expect(instance.size()).to.equal(1);
 
 		});
+	});
 
+	describe('Stack size', function () {
+		it('should return the correct size of the stack', function () {
+			var isEmpty = instance.isEmpty(),
+				size;
+
+			expect(isEmpty).to.be.true;
+
+			instance.push('foo');
+			instance.push('bar');
+			instance.push(7);
+
+			size = instance.size();
+			while (instance.pop()) {
+				expect(instance.size()).to.equal(--size);
+			}
+
+			['foo', 'bar', 1, 3].forEach(function (item) {
+				instance.push(item);
+				expect(instance.size()).to.equal(++size);
+			});
+
+		});
 	});
 
 });
