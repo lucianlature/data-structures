@@ -16,14 +16,13 @@ function balanceChecker (fileSource) {
 
 		if (token === '{') {
 			stack.push(token);
-		} else {
-			if (stack.isEmpty()) {
-				balanced = false;
+		} else if (token === '}') {
+			top = stack.pop();
+
+			if (top === '{') {
+				balanced = true;
 			} else {
-				top = stack.pop();
-				if (!matches(top, token)) {
-					balanced = false;
-				}
+				balanced = false;
 			}
 		}
 		index += 1;
@@ -37,11 +36,10 @@ function balanceChecker (fileSource) {
 }
 
 function matches (open, close) {
-	console.log(open, close);
 	return (open && close && true);
 }
 
-fs.readFile(sassSource, 'utf8', function (err,data) {
+fs.readFile(sassSource, 'utf8', function (err, data) {
 	if (err) {
 		return console.log(err);
 	}
