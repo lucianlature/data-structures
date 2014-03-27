@@ -116,13 +116,13 @@ describe('Stack test', function () {
 		});
 
 		it('doesn\'t modify the stack', function() {
-			var size;
+			var peek, size;
 			instance.push('foo');
 			instance.push('bar');
 			instance.push(7);
 
 			size = instance.size();
-			instance.peek();
+			peek = instance.peek();
 			expect(instance.size()).to.equal(size);
 		});
 	});
