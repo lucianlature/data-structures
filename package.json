@@ -29,6 +29,6 @@
     "mocha-phantomjs": "~3.3.2"
   },
   "engines": {
-    "node": "*"
+    "node": ">=0.10.0"
   }
 }
