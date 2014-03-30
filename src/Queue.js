@@ -10,4 +10,12 @@ function Queue() {
 	this._items = [];
 }
 
+/**
+ * @description Checks if the stack is empty or not
+ * @return {Boolean} True if the queue is empty, false otherwise
+ */
+Queue.prototype.isEmpty = function () {
+	return this._items.length === 0;
+};
+
 module.exports = Queue;

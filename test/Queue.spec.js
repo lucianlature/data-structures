@@ -21,4 +21,13 @@ describe('Queue test', function () {
 			expect(instance).to.be.an.instanceof(Queue);
 		});
 	});
+
+	describe('Queue isEmpty', function () {
+		it('should be true if the queue is empty', function () {
+			var isEmpty = instance.isEmpty();
+			expect(isEmpty).to.be.true;
+		});
+
+	});
+
 });
