@@ -4,7 +4,6 @@ var gulp = require('gulp');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var browserify = require('gulp-browserify');
-// var mochaPhantomJS = require('gulp-mocha-phantomjs');
 var shell = require('gulp-shell');
 
 gulp.task('scripts', function() {
@@ -19,12 +18,5 @@ gulp.task('scripts', function() {
 			'mocha-phantomjs -R spec test/testrunner.html'
 		]));
 });
-/*
-gulp.task('test', function () {
-  return gulp
-  .src('./test/testrunner.html')
-  .pipe(mochaPhantomJS());
-});
-*/
 
 gulp.task('default', ['scripts']);
