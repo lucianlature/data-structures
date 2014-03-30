@@ -24,7 +24,6 @@
     "gulp-concat": "~2.2.0",
     "gulp-mocha": "~0.4.1",
     "gulp-uglify": "~0.2.1",
-    "gulp-mocha-phantomjs": "~0.1.0",
     "gulp-shell": "~0.2.4",
     "mocha-phantomjs": "~3.3.2"
   },
