@@ -4,3 +4,4 @@ Data Structures
 ============
 
   * [Stack](https://github.com/lucianlature/data-structures/tree/master/examples/stack)
+  * [Queue](https://github.com/lucianlature/data-structures/tree/master/examples/queue)
