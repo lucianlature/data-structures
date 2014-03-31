@@ -27,7 +27,7 @@ Adds a new item to the top of the stack
 
 
 **pop()**
-Removes the top item from the stac
+Removes the top item from the stack
 
 	var item = "bar";
 	stack.push(item);
