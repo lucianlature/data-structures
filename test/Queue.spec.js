@@ -27,7 +27,50 @@ describe('Queue test', function () {
 			var isEmpty = instance.isEmpty();
 			expect(isEmpty).to.be.true;
 		});
+		it('should be false if the stack is not empty', function () {
+			instance.enqueue('foo');
+			var isEmpty = instance.isEmpty();
+			expect(isEmpty).to.be.false;
+		});
+	});
 
+	describe('Queue enqueue', function () {
+		it('should insert new items into the queue', function () {
+
+			var isEmpty = instance.isEmpty();
+			expect(isEmpty).to.be.true;
+
+			instance.enqueue('foo');
+			instance.enqueue('bar');
+			instance.enqueue(7);
+			instance.enqueue(true);
+			instance.enqueue([]);
+			instance.enqueue({});
+			instance.enqueue(function(){});
+			expect(instance.size()).to.equal(7);
+
+		});
+	});
+
+	describe('Queue dequeue', function () {
+		it('should remove the front item from the queue', function () {
+
+			var isEmpty = instance.isEmpty(),
+				removedItem;
+
+			expect(isEmpty).to.be.true;
+
+			instance.enqueue('foo');
+			instance.enqueue('bar');
+			instance.enqueue(4);
+			removedItem = instance.dequeue();
+			expect(removedItem).to.equal(4);
+			removedItem = instance.dequeue();
+			expect(removedItem).to.equal('bar');
+
+			expect(instance.size()).to.equal(1);
+
+		});
 	});
 
 });
