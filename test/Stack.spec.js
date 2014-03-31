@@ -65,8 +65,12 @@ describe('Stack test', function () {
 			instance.push('foo');
 			instance.push('bar');
 			removedItem = instance.pop();
-
 			expect(removedItem).to.equal('bar');
+
+			instance.push(4);
+			removedItem = instance.pop();
+			expect(removedItem).to.equal(4);
+
 			expect(instance.size()).to.equal(1);
 
 		});
