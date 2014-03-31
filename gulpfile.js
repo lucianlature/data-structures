@@ -20,4 +20,4 @@ gulp.task('test', function () {
 	return gulp.src('test/testrunner.html').pipe(mochaPhantomJS());
 });
 
-gulp.task('default', ['scripts']);
+gulp.task('default', ['scripts', 'test']);
