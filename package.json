@@ -9,7 +9,7 @@
   },
   "main": "./distribution/index.js",
   "scripts": {
-    "test": "gulp"
+    "test": "gulp test"
   },
   "keywords": [
     "data structure",
@@ -25,7 +25,8 @@
     "gulp-mocha": "~0.4.1",
     "gulp-uglify": "~0.2.1",
     "gulp-shell": "~0.2.4",
-    "mocha-phantomjs": "~3.3.2"
+    "mocha-phantomjs": "~3.3.2",
+    "gulp-mocha-phantomjs": "~0.1.1"
   },
   "engines": {
     "node": ">=0.10.0"
