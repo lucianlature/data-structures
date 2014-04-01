@@ -21,4 +21,17 @@ describe('Deque test', function () {
 			expect(instance).to.be.an.instanceof(Deque);
 		});
 	});
+
+	describe('Deque isEmpty', function () {
+		it('should be true if the deque is empty', function () {
+			var isEmpty = instance.isEmpty();
+			expect(isEmpty).to.be.true;
+		});
+		it('should be false if the deque is not empty', function () {
+			instance.addRear('foo');
+			var isEmpty = instance.isEmpty();
+			expect(isEmpty).to.be.false;
+		});
+	});
+
 });
