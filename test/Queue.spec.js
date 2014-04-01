@@ -27,7 +27,7 @@ describe('Queue test', function () {
 			var isEmpty = instance.isEmpty();
 			expect(isEmpty).to.be.true;
 		});
-		it('should be false if the stack is not empty', function () {
+		it('should be false if the queue is not empty', function () {
 			instance.enqueue('foo');
 			var isEmpty = instance.isEmpty();
 			expect(isEmpty).to.be.false;
