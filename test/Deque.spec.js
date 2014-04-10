@@ -64,4 +64,35 @@ describe('Deque test', function () {
 		});
 	});
 
+	describe('Deque addFront', function () {
+		it('should add new items to the front', function () {
+			var isEmpty = instance.isEmpty();
+
+			expect(isEmpty).to.be.true;
+			instance.addFront('foo');
+			instance.addFront('bar');
+			expect(instance.size()).to.equal(2);
+		});
+	});
+
+	describe('Deque removeRear', function () {
+		it('should remove the front item from the queue', function () {
+			var isEmpty = instance.isEmpty(),
+				front1, front2;
+
+			expect(isEmpty).to.be.true;
+
+			instance.addRear('foo');
+			instance.addFront('bar');
+			instance.addRear(3);
+			instance.addFront(4);
+			expect(instance.size()).to.equal(4);
+			front1 = instance.removeFront();
+			expect(front1).to.equal(4);
+			front2 = instance.removeFront();
+			expect(front2).to.equal('bar');
+			expect(instance.isEmpty()).to.be.false;
+		});
+	});
+
 });

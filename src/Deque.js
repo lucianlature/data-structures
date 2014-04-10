@@ -35,6 +35,24 @@ Deque.prototype.removeRear = function () {
 	return this._items.shift();
 };
 
+
+/**
+ * @description Adds a new item to the front of the deque
+ * @this {Deque}
+ * @param  {Any} item Any type of items can be added
+ */
+Deque.prototype.addFront = function (item) {
+	this._items.push(item);
+};
+
+/**
+ * @description Removes the front item from the deque and returns it
+ * @this {Deque}
+ */
+Deque.prototype.removeFront = function () {
+	return this._items.pop();
+};
+
 /**
  * @description  Returns the number of items in the deque
  * @return {Number} Number of items
