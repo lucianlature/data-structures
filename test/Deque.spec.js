@@ -46,7 +46,7 @@ describe('Deque test', function () {
 	});
 
 	describe('Deque removeRear', function () {
-		it('should remove the front item from the queue', function () {
+		it('should remove the front item from the deque', function () {
 			var isEmpty = instance.isEmpty(),
 				rear1, rear2;
 
@@ -76,7 +76,7 @@ describe('Deque test', function () {
 	});
 
 	describe('Deque removeRear', function () {
-		it('should remove the front item from the queue', function () {
+		it('should remove the front item from the deque', function () {
 			var isEmpty = instance.isEmpty(),
 				front1, front2;
 
