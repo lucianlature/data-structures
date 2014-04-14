@@ -35,4 +35,23 @@ describe('Node test', function () {
 		});
 	});
 
+	describe('Node setNext', function () {
+		it('should set new data on the node', function () {
+			var newNode = new Node('bar');
+			instance.setNext(newNode);
+			expect(instance.getNext().getData()).to.equal('bar');
+		});
+	});
+
+	describe('Node getNext', function () {
+		it('should return a null reference by default', function () {
+			expect(instance.getNext()).to.be.null;
+		});
+		it('should return the referenced node', function () {
+			var newNode = new Node('bar');
+			instance.setNext(newNode);
+			expect(instance.getNext()).to.be.newNode;
+		});
+	});
+
 });
