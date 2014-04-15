@@ -1,10 +1,10 @@
 'use strict';
 
-var List = require('../src/List'),
+var List = require('../src/UnorderedList'),
 	expect = chai.expect,
 	instance = null;
 
-describe('List test', function () {
+describe('UnorederedList test', function () {
 
 	beforeEach(function (done) {
 		instance = new List();
@@ -16,8 +16,8 @@ describe('List test', function () {
 		done();
 	});
 
-	describe('List instantiation', function () {
-		it('should be able to instantiate a new list', function () {
+	describe('UnorderedList instantiation', function () {
+		it('should be able to instantiate a new unordered list', function () {
 			expect(instance).to.be.an.instanceof(List);
 		});
 	});
