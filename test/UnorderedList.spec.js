@@ -21,4 +21,10 @@ describe('UnorederedList test', function () {
 			expect(instance).to.be.an.instanceof(List);
 		});
 	});
+
+	describe('UnorderedList isEmpty', function () {
+		it('should return true when it does not have a head', function () {
+			expect(instance.isEmpty()).to.be.true;
+		});
+	});
 });

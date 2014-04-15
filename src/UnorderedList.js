@@ -5,6 +5,16 @@
  * @description A list is a collection of items where each item holds a
  * relative position with respect to the others.
  */
-function List () {}
+function UnorderedList () {
+	this.head = null;
+}
 
-module.exports = List;
+/**
+ * @description Checks if the list is empty or not
+ * @return {Boolean} True if the list is empty, false otherwise
+ */
+UnorderedList.prototype.isEmpty = function () {
+	return this.head === null;
+};
+
+module.exports = UnorderedList;
