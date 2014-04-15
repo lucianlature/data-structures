@@ -27,4 +27,14 @@ describe('UnorederedList test', function () {
 			expect(instance.isEmpty()).to.be.true;
 		});
 	});
+
+	describe('UnorderedList add', function () {
+		it('should add new items to the list', function () {
+			instance.add(3);
+			instance.add(5);
+			instance.add(8);
+			instance.add(13);
+			instance.add(21);
+		})
+	});
 });
