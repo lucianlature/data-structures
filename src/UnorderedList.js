@@ -30,9 +30,8 @@ UnorderedList.prototype.add = function (item) {
     this._head = temp;
 };
 
-
 /**
- * @description  Returns the number of items in the stack
+ * @description  Returns the number of items in the list
  * @return {Number} Number of items
  */
 UnorderedList.prototype.size = function () {
@@ -45,6 +44,26 @@ UnorderedList.prototype.size = function () {
 	}
 
 	return size;
+};
+
+/**
+ * @description Searches for the item in the list
+ * @param  {Any} item
+ * @return {boolean} Returns true if item is found
+ */
+UnorderedList.prototype.search = function (item) {
+	var current = this._head,
+		found = false;
+
+	while (current !== null && !found) {
+		if (current.getData() === item) {
+			found = true;
+		} else {
+			current = current.getNext();
+		}
+	}
+
+	return found;
 };
 
 module.exports = UnorderedList;

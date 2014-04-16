@@ -48,4 +48,19 @@ describe('UnorederedList test', function () {
 			});
 		})
 	});
+
+	describe('UnorderedList search', function () {
+		it('should add new items to the list', function () {
+			[3, 5, 8, 13, 21].forEach(function (item) {
+				instance.add(item);
+			});
+			expect(instance.search(3)).to.be.true;
+			expect(instance.search(5)).to.be.true;
+			expect(instance.search(8)).to.be.true;
+			expect(instance.search(13)).to.be.true;
+			expect(instance.search(21)).to.be.true;
+			expect(instance.search(0)).to.be.false;
+		});
+	});
+
 });
