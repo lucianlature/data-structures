@@ -66,4 +66,30 @@ UnorderedList.prototype.search = function (item) {
 	return found;
 };
 
+/**
+ * @description Removes the item from the list. It needs the item and modifies the list.
+ * @param  {Any} item
+ */
+UnorderedList.prototype.remove = function (item) {
+	var current = this._head,
+		previous = null,
+		found = false;
+
+	while (!found) {
+		if (current.getData() === item) {
+			found = true;
+		} else {
+			previous = current;
+			current = current.getNext();
+		}
+	}
+
+	if (previous === null) {
+		this._head = current.getNext();
+	} else {
+		previous.setNext(current.getNext());
+	}
+
+};
+
 module.exports = UnorderedList;
