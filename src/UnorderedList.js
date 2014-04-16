@@ -30,4 +30,21 @@ UnorderedList.prototype.add = function (item) {
     this._head = temp;
 };
 
+
+/**
+ * @description  Returns the number of items in the stack
+ * @return {Number} Number of items
+ */
+UnorderedList.prototype.size = function () {
+	var current = this._head,
+		size = 0;
+
+	while (current !== null) {
+		size += 1;
+		current = current.getNext();
+	}
+
+	return size;
+};
+
 module.exports = UnorderedList;

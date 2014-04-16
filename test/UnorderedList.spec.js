@@ -28,13 +28,24 @@ describe('UnorederedList test', function () {
 		});
 	});
 
+	describe('UnorderedList size', function () {
+		it('should return 0 when first instantiated', function () {
+			expect(instance.size()).to.equal(0);
+		});
+		it('should return the correct size when items are being added', function () {
+			instance.add('foo');
+			expect(instance.size()).to.equal(1);
+			instance.add('bar');
+			expect(instance.size()).to.equal(2);
+		});
+	});
+
 	describe('UnorderedList add', function () {
 		it('should add new items to the list', function () {
-			instance.add(3);
-			instance.add(5);
-			instance.add(8);
-			instance.add(13);
-			instance.add(21);
+			[3, 5, 8, 13, 21].forEach(function (item, index) {
+				instance.add(item);
+	            expect(instance.size()).to.equal(index + 1);
+			});
 		})
 	});
 });
