@@ -46,7 +46,7 @@ describe('UnorederedList test', function () {
 				instance.add(item);
 	            expect(instance.size()).to.equal(index + 1);
 			});
-		})
+		});
 	});
 
 	describe('UnorderedList search', function () {
