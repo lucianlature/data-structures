@@ -63,4 +63,18 @@ describe('UnorederedList test', function () {
 		});
 	});
 
+	describe('UnorderedList remove', function () {
+		it('should add new items to the list', function () {
+			[3, 5, 8, 13, 21].forEach(function (item) {
+				instance.add(item);
+			});
+			instance.remove(3);
+			expect(instance.size()).to.equal(4);
+			instance.remove(21);
+			expect(instance.size()).to.equal(3);
+			instance.remove(8);
+			expect(instance.size()).to.equal(2);
+		});
+	});
+
 });
