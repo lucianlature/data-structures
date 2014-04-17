@@ -70,10 +70,15 @@ describe('UnorederedList test', function () {
 			});
 			instance.remove(3);
 			expect(instance.size()).to.equal(4);
+			expect(instance.search(3)).to.be.false;
 			instance.remove(21);
 			expect(instance.size()).to.equal(3);
+			expect(instance.search(21)).to.be.false;
 			instance.remove(8);
 			expect(instance.size()).to.equal(2);
+			expect(instance.search(8)).to.be.false;
+			expect(instance.search(5)).to.be.true;
+			expect(instance.search(13)).to.be.true;
 		});
 	});
 
