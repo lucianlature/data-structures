@@ -44,7 +44,7 @@ describe('UnorederedList test', function () {
 		it('should add new items to the list', function () {
 			[3, 5, 8, 13, 21].forEach(function (item, index) {
 				instance.add(item);
-	            expect(instance.size()).to.equal(index + 1);
+				expect(instance.size()).to.equal(index + 1);
 			});
 		});
 	});
@@ -79,6 +79,15 @@ describe('UnorederedList test', function () {
 			expect(instance.search(8)).to.be.false;
 			expect(instance.search(5)).to.be.true;
 			expect(instance.search(13)).to.be.true;
+		});
+	});
+
+	describe('UnorderedList append', function () {
+		it('should add new items to the list', function () {
+			[3, 5, 8, 13, 21].forEach(function (item, index) {
+				instance.append(item);
+				expect(instance.size()).to.equal(index + 1);
+			});
 		});
 	});
 

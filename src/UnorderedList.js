@@ -9,6 +9,7 @@ var Node = require('./Node');
  */
 function UnorderedList () {
 	this._head = null;
+	this._tail = null;
 }
 
 /**
@@ -90,6 +91,22 @@ UnorderedList.prototype.remove = function (item) {
 		previous.setNext(current.getNext());
 	}
 
+};
+
+
+// append(item) adds a new item to the end of the list making it the last item in the collection.
+// It needs the item and returns nothing. Assume the item is not already in the list.
+
+UnorderedList.prototype.append = function (item) {
+	var current = this._head,
+		next = current.getNext();
+
+	while (next !== null) {
+		next = next.getNext();
+	}
+
+	var temp = new Node (item);
+    next.setNext(temp);
 };
 
 module.exports = UnorderedList;
