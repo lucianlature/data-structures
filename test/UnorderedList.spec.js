@@ -91,4 +91,18 @@ describe('UnorederedList test', function () {
 		});
 	});
 
+	describe('UnorderedList indexOf', function () {
+		it('should return the correct position of the item in the list', function () {
+			[3, 5, 8, 13, 21].forEach(function (item) {
+				instance.add(item);
+			});
+			expect(instance.indexOf(3)).to.equal(4);
+			expect(instance.indexOf(5)).to.equal(3);
+			expect(instance.indexOf(8)).to.equal(2);
+			expect(instance.indexOf(13)).to.equal(1);
+			expect(instance.indexOf(21)).to.equal(0);
+			expect(instance.indexOf(1)).to.equal(-1);
+		});
+	});
+
 });

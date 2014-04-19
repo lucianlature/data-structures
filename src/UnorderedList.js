@@ -94,10 +94,10 @@ UnorderedList.prototype.remove = function (item) {
 
 };
 
-
-// append(item) adds a new item to the end of the list making it the last item in the collection.
-// It needs the item and returns nothing. Assume the item is not already in the list.
-
+/**
+ * @description Adds a new item to the end of the list making it the last item in the collection.
+ * @param  {Any} item
+ */
 UnorderedList.prototype.append = function (item) {
 	var temp = new Node (item);
 	if (this._tail === null) {
@@ -107,6 +107,27 @@ UnorderedList.prototype.append = function (item) {
 		this._tail.setNext(temp);
 		this._tail = temp;
 	}
+};
+
+/**
+ * @description Returns the position of the item in the list
+ * @param  {Any} item
+ * @return {Number} Index or -1 if this list does not contain the element.
+ */
+UnorderedList.prototype.indexOf = function (item) {
+	var current = this._head,
+		index = 0;
+
+	while (current !== null) {
+		if (current.getData() === item) {
+			return index;
+		} else {
+			current = current.getNext();
+		}
+		index += 1;
+	}
+
+	return -1;
 };
 
 module.exports = UnorderedList;
