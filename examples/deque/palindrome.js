@@ -25,6 +25,6 @@ function palindromeChecker (str) {
 	return isPalindrome;
 }
 
-console.log(palindromeChecker("wassamassaw"));
-console.log(palindromeChecker("dennis sinned"));
-console.log(palindromeChecker("rewarder and redrawer"));
+console.log(palindromeChecker('assamassa')); // true
+console.log(palindromeChecker('dennis sinned')); //true
+console.log(palindromeChecker('rewarder and redrawer')); //false
