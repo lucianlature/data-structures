@@ -29,6 +29,7 @@ UnorderedList.prototype.add = function (item) {
     var temp = new Node (item);
     temp.setNext(this._head);
     this._head = temp;
+    this._tail = temp.getNext();
 };
 
 /**
@@ -98,15 +99,14 @@ UnorderedList.prototype.remove = function (item) {
 // It needs the item and returns nothing. Assume the item is not already in the list.
 
 UnorderedList.prototype.append = function (item) {
-	var current = this._head,
-		next = current.getNext();
-
-	while (next !== null) {
-		next = next.getNext();
-	}
-
 	var temp = new Node (item);
-    next.setNext(temp);
+	if (this._tail === null) {
+		this._head = temp;
+		this._tail = temp;
+	} else {
+		this._tail.setNext(temp);
+		this._tail = temp;
+	}
 };
 
 module.exports = UnorderedList;
