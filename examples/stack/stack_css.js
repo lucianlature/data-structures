@@ -35,10 +35,6 @@ function balanceChecker (fileSource) {
 	return false;
 }
 
-function matches (open, close) {
-	return (open && close && true);
-}
-
 fs.readFile(sassSource, 'utf8', function (err, data) {
 	if (err) {
 		return console.log(err);
