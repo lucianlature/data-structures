@@ -105,4 +105,15 @@ describe('UnorederedList test', function () {
 		});
 	});
 
+	describe('UnorderedList insert', function () {
+		it('should insert the item at the correct position in the list', function () {
+			[3, 5, 8, 13, 21].forEach(function (item) {
+				instance.add(item);
+			});
+			instance.insert(2, 7);
+			expect(instance.indexOf(7)).to.equal(2);
+			expect(instance.indexOf(8)).to.equal(3);
+		});
+	});
+
 });
