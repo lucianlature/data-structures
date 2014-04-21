@@ -130,9 +130,11 @@ UnorderedList.prototype.indexOf = function (item) {
 	return -1;
 };
 
-// insert(pos,item) adds a new item to the list at position pos.
-// It needs the item and returns nothing.
-// Assume the item is not already in the list and there are enough existing items to have position pos.
+/**
+ * @description Adds a new item to the list at a certain specified position
+ * @param  {Number} Position index
+ * @param  {Any} item
+ */
 UnorderedList.prototype.insert = function (position, item) {
 	var current = this._head,
 		temp = new Node (item),
@@ -148,6 +150,30 @@ UnorderedList.prototype.insert = function (position, item) {
 
 		current = current.getNext();
 		index += 1;
+	}
+};
+
+/**
+ * @description Removes and return the last item in the list.
+ * @return {Any} Last item
+ */
+UnorderedList.prototype.pop = function () {
+	var current = this._head,
+		previous = null;
+
+	while (current !== null) {
+
+		if (current.getNext() === null) {
+			if (previous !== null) {
+				this._tail = previous;
+				previous.setNext(null);
+			} else {
+				this._head = null;
+			}
+			return current;
+		}
+		previous = current;
+		current = current.getNext();
 	}
 };
 
