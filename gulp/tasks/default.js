@@ -1,3 +1,3 @@
 var gulp = require('gulp');
 
-gulp.task('default', ['browserify', 'test'/*, 'watch', 'serve', 'open'*/]);
+gulp.task('default', ['browserify', 'test']);
