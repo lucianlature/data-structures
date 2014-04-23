@@ -36,7 +36,9 @@
     "glob": "^3.2.9",
     "gulp-streamify": "0.0.5",
     "gulp-clean": "~0.2.4",
-    "gulp-coveralls": "~0.1.2"
+    "gulp-coveralls": "~0.1.2",
+    "istanbul": "~0.2.7",
+    "coveralls": "~2.10.0"
   },
   "browserify": {
     "transform": [
