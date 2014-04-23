@@ -1,3 +1,5 @@
+'use strict';
+
 var gulp      = require('gulp');
 var coveralls = require('gulp-coveralls');
 
