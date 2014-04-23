@@ -35,7 +35,8 @@
     "browserify-shim": "~3.4.1",
     "glob": "^3.2.9",
     "gulp-streamify": "0.0.5",
-    "gulp-clean": "~0.2.4"
+    "gulp-clean": "~0.2.4",
+    "gulp-coveralls": "~0.1.2"
   },
   "browserify": {
     "transform": [
