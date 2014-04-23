@@ -1,5 +1,4 @@
 node_modules
 test/test.bundle.js
 test/test.gulp.js
-dist
 terminal.glue

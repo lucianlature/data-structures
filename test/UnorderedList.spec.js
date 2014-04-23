@@ -128,7 +128,7 @@ describe('UnorederedList test', function () {
 			expect(item.getData()).to.equal(5);
 			item = instance.pop();
 			expect(item.getData()).to.equal(8);
-			expect(instance.isEmpty()).to.be.false;
+			expect(instance.isEmpty()).to.be.true;
 		});
 	});
 
