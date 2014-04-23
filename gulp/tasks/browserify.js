@@ -16,10 +16,10 @@ gulp.task('browserify', function () {
 		bundler.add(file);
 	});
 
-	bundle(bundler, 'test.gulp.js')
+	bundle(bundler, 'data-structures.js')
 		.pipe(gStreamify(uglify()))
-		.pipe(gStreamify(concat('test.gulp.js')))
-		.pipe(gulp.dest('./test'));
+		.pipe(gStreamify(concat('data-structures.min.js')))
+		.pipe(gulp.dest('./dist'));
 });
 
 
