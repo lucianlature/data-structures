@@ -38,7 +38,8 @@
     "gulp-clean": "~0.2.4",
     "gulp-coveralls": "~0.1.2",
     "istanbul": "~0.2.7",
-    "coveralls": "~2.10.0"
+    "coveralls": "~2.10.0",
+    "gulp-istanbul": "~0.1.1"
   },
   "browserify": {
     "transform": [
