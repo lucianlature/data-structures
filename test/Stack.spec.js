@@ -1,6 +1,7 @@
 'use strict';
 
 var Stack = require('../src/Stack'),
+	chai = require('chai'),
 	expect = chai.expect,
 	instance = null;
 

@@ -1,6 +1,7 @@
 'use strict';
 
 var List = require('../src/UnorderedList'),
+	chai = require('chai'),
 	expect = chai.expect,
 	instance = null;
 

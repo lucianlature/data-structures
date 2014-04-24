@@ -1,6 +1,7 @@
 'use strict';
 
 var Queue = require('../src/Queue'),
+	chai = require('chai'),
 	expect = chai.expect,
 	instance = null;
 

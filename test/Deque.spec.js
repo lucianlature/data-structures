@@ -1,6 +1,7 @@
 'use strict';
 
 var Deque = require('../src/Deque'),
+	chai = require('chai'),
 	expect = chai.expect,
 	instance = null;
 
