@@ -9,4 +9,4 @@ script:
   - gulp
 
 after_script:
-  - npm run coveralls && rm -rf ./coverage
+  - gulp coveralls && rm -rf ./coverage
