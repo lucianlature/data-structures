@@ -155,13 +155,20 @@ UnorderedList.prototype.insert = function (position, item) {
 
 /**
  * @description Removes and return the last item in the list.
- * @return {Any} Last item
+ * @param {Number} position If present, removes and returns the item at position pos.
+ * @return {*}
  */
-UnorderedList.prototype.pop = function () {
+UnorderedList.prototype.pop = function (position) {
 	var current = this._head,
-		previous = null;
+		previous = null,
+		index = 0;
 
 	while (current !== null) {
+
+		if (position && index === position) {
+			previous.setNext(current.getNext());
+			return current;
+		}
 
 		if (current.getNext() === null) {
 			if (previous !== null) {
@@ -174,6 +181,7 @@ UnorderedList.prototype.pop = function () {
 		}
 		previous = current;
 		current = current.getNext();
+		index += 1;
 	}
 };
 

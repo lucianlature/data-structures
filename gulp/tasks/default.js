@@ -3,5 +3,5 @@
 var gulp = require('gulp');
 
 gulp.task('default', ['browserify'], function () {
-	gulp.start('istanbul'/*, 'clean'*/);
+	gulp.start('istanbul');
 });

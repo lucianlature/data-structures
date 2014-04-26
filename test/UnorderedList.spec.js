@@ -118,7 +118,7 @@ describe('UnorederedList test', function () {
 	});
 
 	describe('UnorderedList pop', function () {
-		it('should remove the last item of the list', function () {
+		it('should remove the last item of the list if position not provided', function () {
 			var item;
 			instance.add(3);
 			instance.add(5);
@@ -129,6 +129,18 @@ describe('UnorederedList test', function () {
 			expect(item.getData()).to.equal(5);
 			item = instance.pop();
 			expect(item.getData()).to.equal(8);
+			expect(instance.isEmpty()).to.be.true;
+		});
+		it('should remove the item of the list at the provided position', function () {
+			var item;
+			instance.add(3);
+			instance.add(5);
+			instance.add(8);
+			item = instance.pop(1);
+			expect(item.getData()).to.equal(5);
+			item = instance.pop(0);
+			expect(item.getData()).to.equal(3);
+			instance.pop();
 			expect(instance.isEmpty()).to.be.true;
 		});
 	});
