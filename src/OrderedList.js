@@ -57,6 +57,7 @@ OrderedList.prototype.add = function (item) {
 /**
  * @description  Returns the number of items in the list
  * @return {Number} Number of items
+ * TODO: Implement this is in O(1)
  */
 OrderedList.prototype.size = function () {
 	var current = this._head,
