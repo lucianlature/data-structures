@@ -2,6 +2,4 @@
 
 var gulp = require('gulp');
 
-gulp.task('default', ['browserify'], function () {
-	gulp.start('istanbul');
-});
+gulp.task('default', ['browserify', 'istanbul']);
