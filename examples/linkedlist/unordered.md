@@ -5,9 +5,8 @@ Plain JavaScript implementation of an unordered linked list.
 
 ------------
 
-###Objects###
+###Unordered List###
 
-**Unordered List**
 The list object returned when require is called on this library
 
 	var List = require('UnorderedList');
