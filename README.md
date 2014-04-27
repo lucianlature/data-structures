@@ -4,8 +4,9 @@
 [![devDependency Status](https://david-dm.org/lucianlature/data-structures/dev-status.svg)](https://david-dm.org/lucianlature/data-structures#info=devDependencies)
 
 Data Structures
-============
+===============
 
   * [Stack](https://github.com/lucianlature/data-structures/tree/master/examples/stack)
   * [Queue](https://github.com/lucianlature/data-structures/tree/master/examples/queue)
   * [Deque](https://github.com/lucianlature/data-structures/tree/master/examples/deque)
+  * [Linked List](https://github.com/lucianlature/data-structures/tree/master/examples/linkedlist)
