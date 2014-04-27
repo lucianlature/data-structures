@@ -139,7 +139,7 @@ describe('UnorederedList test', function () {
 			item = instance.pop(1);
 			expect(item.getData()).to.equal(5);
 			item = instance.pop(0);
-			expect(item.getData()).to.equal(3);
+			expect(item.getData()).to.equal(8);
 			instance.pop();
 			expect(instance.isEmpty()).to.be.true;
 		});

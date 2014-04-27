@@ -161,28 +161,26 @@ UnorderedList.prototype.insert = function (position, item) {
 UnorderedList.prototype.pop = function (position) {
 	var current = this._head,
 		previous = null,
+		foundPos = false,
+		position = (typeof position === 'undefined') ? this.size() - 1 : position,
 		index = 0;
 
-	while (current !== null) {
-
-		if (position && index === position) {
-			previous.setNext(current.getNext());
-			return current;
+	while (!foundPos) {
+		if (index === position) {
+			foundPos = true;
+		} else {
+			previous = current;
+			current = current.getNext();
+			index += 1;
 		}
-
-		if (current.getNext() === null) {
-			if (previous !== null) {
-				this._tail = previous;
-				previous.setNext(null);
-			} else {
-				this._head = null;
-			}
-			return current;
-		}
-		previous = current;
-		current = current.getNext();
-		index += 1;
 	}
+
+	if (previous === null) {
+		this._head = current.getNext();
+	} else {
+		previous.setNext(current.getNext());
+	}
+	return current;
 };
 
 module.exports = UnorderedList;
