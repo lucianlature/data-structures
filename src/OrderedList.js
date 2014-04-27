@@ -1,6 +1,9 @@
 'use strict';
 
-var Node = require('./Node');
+var Node = require('./Node'),
+	sortingOperation = function (a, b) {
+		return a - b;
+	};
 
 /**
  * @constructor
@@ -27,18 +30,35 @@ OrderedList.prototype.isEmpty = function () {
  * @this {UnorderedList}
  * @param  {Any} item Any type of items can be added
  */
-UnorderedList.prototype.add = function (item) {
-    var temp = new Node (item);
-    temp.setNext(this._head);
-    this._head = temp;
-    this._tail = temp.getNext();
+OrderedList.prototype.add = function (item) {
+	var current = this._head,
+		previous = null,
+		stop = false,
+		temp = new Node(item);
+
+	while (current !== null && !stop) {
+		if (sortingOperation(current.getData(), item) > 0) {
+			stop = true;
+		} else {
+			previous = current;
+			current = current.getNext();
+		}
+	}
+
+	if (previous === null) {
+		temp.setNext(this._head);
+		this._head = temp;
+	} else {
+		temp.setNext(current);
+		previous.setNext(temp);
+	}
 };
 
 /**
  * @description  Returns the number of items in the list
  * @return {Number} Number of items
  */
-UnorderedList.prototype.size = function () {
+OrderedList.prototype.size = function () {
 	var current = this._head,
 		size = 0;
 
@@ -55,7 +75,7 @@ UnorderedList.prototype.size = function () {
  * @param  {Any} item
  * @return {boolean} Returns true if item is found
  */
-UnorderedList.prototype.search = function (item) {
+OrderedList.prototype.search = function (item) {
 	var current = this._head,
 		found = false;
 
@@ -74,7 +94,7 @@ UnorderedList.prototype.search = function (item) {
  * @description Removes the item from the list. It needs the item and modifies the list.
  * @param  {Any} item
  */
-UnorderedList.prototype.remove = function (item) {
+OrderedList.prototype.remove = function (item) {
 	var current = this._head,
 		previous = null,
 		found = false;
@@ -97,26 +117,11 @@ UnorderedList.prototype.remove = function (item) {
 };
 
 /**
- * @description Adds a new item to the end of the list making it the last item in the collection.
- * @param  {Any} item
- */
-UnorderedList.prototype.append = function (item) {
-	var temp = new Node (item);
-	if (this._tail === null) {
-		this._head = temp;
-		this._tail = temp;
-	} else {
-		this._tail.setNext(temp);
-		this._tail = temp;
-	}
-};
-
-/**
  * @description Returns the position of the item in the list
  * @param  {Any} item
  * @return {Number} Index or -1 if this list does not contain the element.
  */
-UnorderedList.prototype.indexOf = function (item) {
+OrderedList.prototype.indexOf = function (item) {
 	var current = this._head,
 		index = 0;
 
@@ -133,58 +138,33 @@ UnorderedList.prototype.indexOf = function (item) {
 };
 
 /**
- * @description Adds a new item to the list at a certain specified position
- * @param  {Number} Position index
- * @param  {Any} item
- */
-UnorderedList.prototype.insert = function (position, item) {
-	var current = this._head,
-		temp = new Node (item),
-		index = 0;
-
-	while (current !== null) {
-
-		if (index === position - 1) {
-			var next = current.getNext();
-			current.setNext(temp);
-			temp.setNext(next);
-		}
-
-		current = current.getNext();
-		index += 1;
-	}
-};
-
-/**
  * @description Removes and return the last item in the list.
  * @param {Number} position If present, removes and returns the item at position pos.
  * @return {*}
  */
-UnorderedList.prototype.pop = function (position) {
+OrderedList.prototype.pop = function (position) {
 	var current = this._head,
 		previous = null,
+		foundPos = false,
+		position = (typeof position === 'undefined') ? this.size() - 1 : position,
 		index = 0;
 
-	while (current !== null) {
-
-		if (position && index === position) {
-			previous.setNext(current.getNext());
-			return current;
+	while (!foundPos) {
+		if (index === position) {
+			foundPos = true;
+		} else {
+			previous = current;
+			current = current.getNext();
+			index += 1;
 		}
-
-		if (current.getNext() === null) {
-			if (previous !== null) {
-				this._tail = previous;
-				previous.setNext(null);
-			} else {
-				this._head = null;
-			}
-			return current;
-		}
-		previous = current;
-		current = current.getNext();
-		index += 1;
 	}
+
+	if (previous === null) {
+		this._head = current.getNext();
+	} else {
+		previous.setNext(current.getNext());
+	}
+	return current;
 };
 
 module.exports = OrderedList;

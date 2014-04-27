@@ -17,40 +17,50 @@ describe('OrderedList test', function () {
 		done();
 	});
 
-	describe('UnorderedList instantiation', function () {
+	describe('OrderedList instantiation', function () {
 		it('should be able to instantiate a new unordered list', function () {
 			expect(instance).to.be.an.instanceof(List);
 		});
 	});
-	/*
-	describe('UnorderedList isEmpty', function () {
+
+	describe('OrderedList isEmpty', function () {
 		it('should return true when it does not have a head', function () {
 			expect(instance.isEmpty()).to.be.true;
 		});
 	});
 
-	describe('UnorderedList size', function () {
+	describe('OrderedList size', function () {
 		it('should return 0 when first instantiated', function () {
 			expect(instance.size()).to.equal(0);
 		});
 		it('should return the correct size when items are being added', function () {
-			instance.add('foo');
+			instance.add(3);
 			expect(instance.size()).to.equal(1);
-			instance.add('bar');
+			instance.add(5);
 			expect(instance.size()).to.equal(2);
 		});
 	});
 
-	describe('UnorderedList add', function () {
+	describe('OrderedList add', function () {
 		it('should add new items to the list', function () {
 			[3, 5, 8, 13, 21].forEach(function (item, index) {
 				instance.add(item);
 				expect(instance.size()).to.equal(index + 1);
 			});
 		});
+		it('should preserve the correct order when items are being added', function () {
+			[3, 8, 21, 13, 5].forEach(function (item, index) {
+				instance.add(item);
+			});
+			expect(instance.indexOf(3)).to.equal(0);
+			expect(instance.indexOf(5)).to.equal(1);
+			expect(instance.indexOf(8)).to.equal(2);
+			expect(instance.indexOf(13)).to.equal(3);
+			expect(instance.indexOf(21)).to.equal(4);
+		});
 	});
 
-	describe('UnorderedList search', function () {
+	describe('OrderedList search', function () {
 		it('should add new items to the list', function () {
 			[3, 5, 8, 13, 21].forEach(function (item) {
 				instance.add(item);
@@ -64,7 +74,7 @@ describe('OrderedList test', function () {
 		});
 	});
 
-	describe('UnorderedList remove', function () {
+	describe('OrderedList remove', function () {
 		it('should add new items to the list', function () {
 			[3, 5, 8, 13, 21].forEach(function (item) {
 				instance.add(item);
@@ -83,52 +93,32 @@ describe('OrderedList test', function () {
 		});
 	});
 
-	describe('UnorderedList append', function () {
-		it('should add new items to the list', function () {
-			[3, 5, 8, 13, 21].forEach(function (item, index) {
-				instance.append(item);
-				expect(instance.size()).to.equal(index + 1);
-			});
-		});
-	});
-
-	describe('UnorderedList indexOf', function () {
+	describe('OrderedList indexOf', function () {
 		it('should return the correct position of the item in the list', function () {
-			[3, 5, 8, 13, 21].forEach(function (item) {
+			[3, 8, 21, 13, 5].forEach(function (item, index) {
 				instance.add(item);
 			});
-			expect(instance.indexOf(3)).to.equal(4);
-			expect(instance.indexOf(5)).to.equal(3);
+			expect(instance.indexOf(3)).to.equal(0);
+			expect(instance.indexOf(5)).to.equal(1);
 			expect(instance.indexOf(8)).to.equal(2);
-			expect(instance.indexOf(13)).to.equal(1);
-			expect(instance.indexOf(21)).to.equal(0);
+			expect(instance.indexOf(13)).to.equal(3);
+			expect(instance.indexOf(21)).to.equal(4);
 			expect(instance.indexOf(1)).to.equal(-1);
 		});
 	});
 
-	describe('UnorderedList insert', function () {
-		it('should insert the item at the correct position in the list', function () {
-			[3, 5, 8, 13, 21].forEach(function (item) {
-				instance.add(item);
-			});
-			instance.insert(2, 7);
-			expect(instance.indexOf(7)).to.equal(2);
-			expect(instance.indexOf(8)).to.equal(3);
-		});
-	});
-
-	describe('UnorderedList pop', function () {
+	describe('OrderedList pop', function () {
 		it('should remove the last item of the list if position not provided', function () {
 			var item;
 			instance.add(3);
 			instance.add(5);
 			instance.add(8);
 			item = instance.pop();
-			expect(item.getData()).to.equal(3);
+			expect(item.getData()).to.equal(8);
 			item = instance.pop();
 			expect(item.getData()).to.equal(5);
 			item = instance.pop();
-			expect(item.getData()).to.equal(8);
+			expect(item.getData()).to.equal(3);
 			expect(instance.isEmpty()).to.be.true;
 		});
 		it('should remove the item of the list at the provided position', function () {
@@ -144,5 +134,4 @@ describe('OrderedList test', function () {
 			expect(instance.isEmpty()).to.be.true;
 		});
 	});
-	*/
 });
