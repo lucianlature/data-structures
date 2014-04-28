@@ -65,7 +65,7 @@ describe('UnorederedList test', function () {
 	});
 
 	describe('UnorderedList remove', function () {
-		it('should add new items to the list', function () {
+		it('should remove the item from the list', function () {
 			[3, 5, 8, 13, 21].forEach(function (item) {
 				instance.add(item);
 			});
@@ -80,6 +80,13 @@ describe('UnorederedList test', function () {
 			expect(instance.search(8)).to.be.false;
 			expect(instance.search(5)).to.be.true;
 			expect(instance.search(13)).to.be.true;
+		});
+		it('should do nothing if item is not in the list', function () {
+			[3, 5, 8, 13, 21].forEach(function (item) {
+				instance.add(item);
+			});
+			instance.remove(4);
+			expect(expect(instance.size()).to.equal(5));
 		});
 	});
 

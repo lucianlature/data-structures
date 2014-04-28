@@ -71,6 +71,11 @@ UnorderedList.prototype.remove = function (item) {
 		previous = null,
 		found = false;
 
+	// check if item is in the list
+	if (this.indexOf(item) === -1) {
+		return;
+	}
+
 	while (!found) {
 		if (current.getData() === item) {
 			found = true;
