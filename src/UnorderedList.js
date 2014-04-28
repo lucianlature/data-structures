@@ -10,6 +10,7 @@ var Node = require('./Node');
 function UnorderedList () {
 	this._head = null;
 	this._tail = null;
+	this._length = 0;
 }
 
 /**
@@ -30,6 +31,7 @@ UnorderedList.prototype.add = function (item) {
     temp.setNext(this._head);
     this._head = temp;
     this._tail = temp.getNext();
+    this._length += 1;
 };
 
 /**
@@ -37,15 +39,7 @@ UnorderedList.prototype.add = function (item) {
  * @return {Number} Number of items
  */
 UnorderedList.prototype.size = function () {
-	var current = this._head,
-		size = 0;
-
-	while (current !== null) {
-		size += 1;
-		current = current.getNext();
-	}
-
-	return size;
+	return this._length;
 };
 
 /**
@@ -92,6 +86,8 @@ UnorderedList.prototype.remove = function (item) {
 		previous.setNext(current.getNext());
 	}
 
+	this._length -= 1;
+
 };
 
 /**
@@ -107,6 +103,7 @@ UnorderedList.prototype.append = function (item) {
 		this._tail.setNext(temp);
 		this._tail = temp;
 	}
+	this._length += 1;
 };
 
 /**
@@ -146,6 +143,7 @@ UnorderedList.prototype.insert = function (position, item) {
 			var next = current.getNext();
 			current.setNext(temp);
 			temp.setNext(next);
+			this._length += 1;
 		}
 
 		current = current.getNext();
@@ -180,6 +178,9 @@ UnorderedList.prototype.pop = function (position) {
 	} else {
 		previous.setNext(current.getNext());
 	}
+
+	this._length -= 1;
+
 	return current;
 };
 

@@ -15,6 +15,7 @@ var Node = require('./Node'),
 function OrderedList () {
 	this._head = null;
 	this._tail = null;
+	this._length = 0;
 }
 
 /**
@@ -52,23 +53,17 @@ OrderedList.prototype.add = function (item) {
 		temp.setNext(current);
 		previous.setNext(temp);
 	}
+
+	this._length += 1;
+
 };
 
 /**
  * @description  Returns the number of items in the list
  * @return {Number} Number of items
- * TODO: Implement this is in O(1)
  */
 OrderedList.prototype.size = function () {
-	var current = this._head,
-		size = 0;
-
-	while (current !== null) {
-		size += 1;
-		current = current.getNext();
-	}
-
-	return size;
+	return this._length;
 };
 
 /**
@@ -114,6 +109,8 @@ OrderedList.prototype.remove = function (item) {
 	} else {
 		previous.setNext(current.getNext());
 	}
+
+	this._length -= 1;
 
 };
 
@@ -165,6 +162,9 @@ OrderedList.prototype.pop = function (position) {
 	} else {
 		previous.setNext(current.getNext());
 	}
+
+	this._length -= 1;
+
 	return current;
 };
 
