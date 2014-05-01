@@ -16,7 +16,7 @@ The list object returned when require is called on this library
 
 ###Methods###
 
-**add(item)**
+**`add (item)`**
 Adds a new item to the list. It returns nothing.
 
 	list.add(3);
@@ -27,7 +27,7 @@ Adds a new item to the list. It returns nothing.
 
 	// list has - 3 -> 5 -> 8 -> 13 -> 21
 
-**remove(item)**
+**`remove (item)`**
 Removes the item from the list
 
 	list.add(3);
@@ -41,7 +41,7 @@ Removes the item from the list
 	//> list has - 3 -> 5 -> 13 -> 21
 
 
-**search(item)**
+**`search (item)`**
 Searches for the item in the list
 
 	list.add(3);
@@ -56,7 +56,7 @@ Searches for the item in the list
 	//> false
 
 
-**isEmpty()**
+**`isEmpty()`**
 Checks if the list is empty or not
 
 	if (!list.isEmpty()) {
@@ -66,7 +66,7 @@ Checks if the list is empty or not
 	//> true
 
 
-**size()**
+**`size()`**
 Returns the number of the items in the list
 
 	list.add(3);
@@ -85,7 +85,7 @@ Returns the number of the items in the list
 	console.log(list.size());
 	//> 0
 
-**indexOf(item)**
+**`indexOf (item)`**
 Returns the position of item in the list
 
 	list.add(3);
@@ -99,7 +99,7 @@ Returns the position of item in the list
 	console.log(list.indexOf(5));
 	//> 1
 
-**pop()**
+**`pop()`**
 Removes and returns the last item in the list.
 
 	list.add(3);
@@ -114,7 +114,7 @@ Removes and returns the last item in the list.
 	//> 21  //list now has - 3 -> 5 -> 8 -> 13
 
 
-**pop(pos)**
+**`pop (pos)`**
 Removes and returns the item at position pos in the list.
 
 	list.add(3);
