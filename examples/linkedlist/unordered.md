@@ -16,7 +16,7 @@ The list object returned when require is called on this library
 
 ###Methods###
 
-**add(item)**
+**`add (item)`**
 Adds a new item to the list. It returns nothing.
 
 	list.add("foo");
@@ -27,7 +27,7 @@ Adds a new item to the list. It returns nothing.
 
 	// list has - foobaz -> foobar -> baz -> bar -> foo
 
-**remove(item)**
+**`remove (item)`**
 Removes the item from the list
 
 	list.add("foo");
@@ -41,7 +41,7 @@ Removes the item from the list
 	//> list has - foobaz -> foobar -> bar -> foo
 
 
-**search(item)**
+**`search (item)`**
 Searches for the item in the list
 
 	list.add("foo");
@@ -51,7 +51,7 @@ Searches for the item in the list
 	//> true
 
 
-**isEmpty()**
+**`isEmpty()`**
 Checks if the list is empty or not
 
 	if (!list.isEmpty()) {
@@ -61,7 +61,7 @@ Checks if the list is empty or not
 	//> true
 
 
-**size()**
+**`size()`**
 Returns the number of the items in the list
 
 	list.add("foo");
@@ -79,7 +79,7 @@ Returns the number of the items in the list
 	//> 0
 
 
-**append(item)**
+**`append (item)`**
 Adds a new item to the end of the list making it the last item in the collection
 
 	list.add("foo");
@@ -91,7 +91,7 @@ Adds a new item to the end of the list making it the last item in the collection
 	//> list has - baz -> bar -> foo -> foobaz
 
 
-**indexOf(item)**
+**`indexOf (item)`**
 Returns the position of item in the list
 
 	list.add("foo");
@@ -104,7 +104,7 @@ Returns the position of item in the list
 	//> 1
 
 
-**insert(pos,item)**
+**`insert (pos,item)`**
 Adds a new item to the list at position pos.
 
 	list.add("foo");
@@ -116,7 +116,7 @@ Adds a new item to the list at position pos.
 	//> list now has - baz -> foobaz -> bar -> foo
 
 
-**pop()**
+**`pop()`**
 Removes and returns the last item in the list.
 
 	list.add("foo");
@@ -128,7 +128,7 @@ Removes and returns the last item in the list.
 	//> foo  //list now has - baz -> bar
 
 
-**pop(pos)**
+**`pop (pos)`**
 Removes and returns the item at position pos in the list.
 
 	list.add("foo");
