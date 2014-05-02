@@ -152,4 +152,19 @@ describe('UnorederedList test', function () {
 		});
 	});
 
+	describe('UnorderedList slice', function () {
+		it('should insert the item at the correct position in the list', function () {
+			[3, 5, 8, 13, 21].forEach(function (item) {
+				instance.add(item);
+			});
+
+			var slice = instance.slice(1, 3);
+
+			expect(slice).to.be.instanceof(List);
+			expect(slice.size()).to.equal(2);
+			expect(slice.indexOf(13)).to.equal(0);
+			expect(slice.indexOf(8)).to.equal(1);
+		});
+	});
+
 });

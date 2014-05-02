@@ -189,4 +189,35 @@ UnorderedList.prototype.pop = function (position) {
 	return current;
 };
 
+/**
+ * @description Return a copy of the list starting at the start position
+ * and going up to but not including the stop position.
+ * @param  {Number} startPosition
+ * @param  {Number} stopPosition
+ * @return {UnorderedList} The sliced list
+ */
+UnorderedList.prototype.slice = function (startPosition, stopPosition) {
+	var slice = new UnorderedList(),
+		current = this._head,
+		foundPos = false,
+		index = 0;
+
+	while (!foundPos) {
+		if (index === startPosition) {
+			foundPos = true;
+		} else {
+			current = current.getNext();
+			index += 1;
+		}
+	}
+
+	while (index < stopPosition) {
+		slice.append(current.getData());
+		current = current.getNext();
+		index += 1;
+	}
+
+	return slice;
+}
+
 module.exports = UnorderedList;
