@@ -11,8 +11,8 @@ var UnorderedList = require('./UnorderedList'),
  * a reference to the next node.
  */
 function TreeNode (initData) {
-	this.data = initData;
-	this.children = {};
+	this.data = initData || null;
+	this.children = [];
 }
 
 /**
@@ -48,28 +48,20 @@ TreeNode.prototype.setChildren = function (newChildren) {
 	this.children = newChildren;
 };
 
-TreeNode.prototype.getNumberOfChildren = function () {
-	return this.children.size();
+TreeNode.prototype.getChildrenSize = function () {
+	return this.children.length;
 };
 
 TreeNode.prototype.hasChildren = function () {
-	return !!this.getNumberOfChildren();
+	return !!this.getChildrenSize();
 };
 
 TreeNode.prototype.addChild = function (newChild) {
-	this.children.add(newChild);
-};
-
-TreeNode.prototype.addChildAt = function (position, newChild) {
-	this.children.add(position, newChild);
-};
-
-TreeNode.prototype.getChildAt = function (position) {
-	return this.children.get(position);
+	this.children.push(newChild);
 };
 
 TreeNode.prototype.removeChildren = function () {
-	this.children = {};
+	this.children = [];
 };
 
 module.exports = TreeNode;
