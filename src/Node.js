@@ -14,7 +14,7 @@ function Node (initData) {
 
 /**
  * @description Returns associated data
- * @this {List}
+ * @this {Node}
  */
 Node.prototype.getData = function () {
 	return this.data;
@@ -22,7 +22,7 @@ Node.prototype.getData = function () {
 
 /**
  * @description Returns the next node
- * @this {List}
+ * @this {Node}
  */
 Node.prototype.getNext = function () {
 	return this.next;
@@ -30,7 +30,7 @@ Node.prototype.getNext = function () {
 
 /**
  * @description Sets associated data
- * @this {List}
+ * @this {Node}
  * @param {Any} newData Any type of items can be added
  */
 Node.prototype.setData = function (newData) {
@@ -39,7 +39,7 @@ Node.prototype.setData = function (newData) {
 
 /**
  * @description Sets the next node
- * @this {List}
+ * @this {Node}
  * @param {Node} newNext A Node instance
  */
 Node.prototype.setNext = function (newNext) {
