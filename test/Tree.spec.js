@@ -36,10 +36,12 @@ describe('Tree test', function () {
 				childFooBar = new TreeNode('foobar');
 
 			childBar.addChild(childFooBar);
-			//expect(childBar.hasChildren()).to.be.true;
-			//expect(childBar.getChildrenSize()).to.equal(1);
-			//expect(childFooBar.hasChildren()).to.be.false;
-			//expect(childFooBar.getChildrenSize()).to.equal(0);
+
+			expect(childBar.hasChildren()).to.be.true;
+			expect(childBar.getChildrenSize()).to.equal(1);
+			expect(childFooBar.hasChildren()).to.be.false;
+			expect(childFooBar.getChildrenSize()).to.equal(0);
+
 			root.addChild(childFoo);
 			root.addChild(childBar);
 			instance.setRoot(root);
@@ -54,13 +56,29 @@ describe('Tree test', function () {
 		});
 	});
 
-	/*
 	describe('Tree search', function () {
 		it('should return true if node value found', function () {
-			expect(instance.search())
+			var root = new TreeNode('root'),
+				childFoo = new TreeNode('foo'),
+				childBar = new TreeNode('bar'),
+				childFooBar = new TreeNode('foobar');
+
+			childBar.addChild(childFooBar);
+
+			expect(childBar.hasChildren()).to.be.true;
+			expect(childBar.getChildrenSize()).to.equal(1);
+			expect(childFooBar.hasChildren()).to.be.false;
+			expect(childFooBar.getChildrenSize()).to.equal(0);
+
+			root.addChild(childFoo);
+			root.addChild(childBar);
+			instance.setRoot(root);
+
+			expect(instance.search('foobar')).to.be.true;
 		});
 	});
 
+	/*
 	describe('Tree appendChild', function () {
 		it('should be able to add new nodes to the Tree', function () {
 			instance
