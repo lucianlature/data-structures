@@ -75,6 +75,7 @@ describe('Tree test', function () {
 			instance.setRoot(root);
 
 			expect(instance.search('foobar')).to.be.true;
+			expect(instance.search('baz')).to.be.false;
 		});
 	});
 

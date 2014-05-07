@@ -50,20 +50,26 @@ Tree.prototype.isEmpty = function () {
 
 Tree.prototype.search = function (item) {
 	if (this._root !== null) {
-		return this._auxiliaryFind(this._root, item);
+		return this._find(this._root, item);
 	}
 };
 
-Tree.prototype._auxiliaryFind = function (currentNode, item) {
+Tree.prototype._find = function (currentNode, item) {
 	var current = currentNode,
-		found = false;
+		numberOfNodes = current.getChildrenSize(),
+		children = current.getChildren(),
+		found = false,
+		i = 0,
+		child = null;
 
-	while (current.hasChildren() && !found) {
-		if (current.getData() === item) {
+	while (i < numberOfNodes && !found) {
+		child = children[i];
+		if (child.getData() === item) {
 			found = true;
 		} else {
-			this._auxiliaryFind(currentNode, item);
+			found = this._find(child, item);
 		}
+		i += 1;
 	}
 
 	return found;
