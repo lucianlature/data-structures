@@ -108,4 +108,22 @@ describe('Tree test', function () {
 			expect(instance.search('baz')).to.be.false;
 		});
 	});
+
+	describe('Tree pre-order traversal', function () {
+		it('should return the correct order of the nodes', function () {
+			var root = new TreeNode('root'),
+				childFoo = new TreeNode('foo'),
+				childBar = new TreeNode('bar'),
+				childFooBar = new TreeNode('foobar');
+
+			childBar.addChild(childFooBar);
+			root.addChild(childFoo);
+			root.addChild(childBar);
+			instance.setRoot(root);
+
+			expect(instance.preOrder()).to.equal('root', 'foo', 'bar', 'foobar');
+
+			/* Pre-order: root, foo, bar, foobar */
+		});
+	});
 });
