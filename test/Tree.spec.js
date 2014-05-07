@@ -25,6 +25,14 @@ describe('Tree test', function () {
 		});
 	});
 
+	describe('Tree getRoot', function () {
+		it('should return the correct value of the root', function () {
+			var root = new TreeNode('root');
+			instance.setRoot(root);
+			expect(instance.getRoot().getData()).to.equal('root');
+		});
+	});
+
 	describe('Tree getNumberOfNodes', function () {
 		it('should return 0 when no nodes contained', function () {
 			expect(instance.getNumberOfNodes()).to.equal(0);
@@ -78,21 +86,4 @@ describe('Tree test', function () {
 			expect(instance.search('baz')).to.be.false;
 		});
 	});
-
-	/*
-	describe('Tree appendChild', function () {
-		it('should be able to add new nodes to the Tree', function () {
-			instance
-				.appendChild('foo')
-				.appendChild('bar')
-				.appendChild('foobar');
-
-			instance.children[0].appendChild('').appendChild('');
-
-
-			//expect(instance.size()).to.equal(1);
-			//expect(instance.getRoot().getData()).to.equal('foo');
-		});
-	});
-	*/
 });
