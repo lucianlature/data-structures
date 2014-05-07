@@ -67,6 +67,23 @@ describe('Tree test', function () {
 		it('should return true is the tree has no nodes', function () {
 			expect(instance.isEmpty()).to.be.true;
 		});
+		it('should return false when only root is added', function () {
+			var root = new TreeNode('root');
+			instance.setRoot(root);
+			expect(instance.isEmpty()).to.be.false;
+		});
+		it('should return false when more nodes are added', function () {
+			var root = new TreeNode('root'),
+				childFoo = new TreeNode('foo'),
+				childBar = new TreeNode('bar'),
+				childFooBar = new TreeNode('foobar');
+
+			childBar.addChild(childFooBar);
+			root.addChild(childFoo);
+			root.addChild(childBar);
+			instance.setRoot(root);
+			expect(instance.isEmpty()).to.be.false;
+		});
 	});
 
 	describe('Tree search', function () {
