@@ -31,6 +31,11 @@ describe('Tree test', function () {
 			instance.setRoot(root);
 			expect(instance.getRoot().getData()).to.equal('root');
 		});
+		it('should return the correct number of nodes when only root is added', function () {
+			var root = new TreeNode('root');
+			instance.setRoot(root);
+			expect(instance.getNumberOfNodes()).to.equal(1);
+		});
 	});
 
 	describe('Tree getNumberOfNodes', function () {
