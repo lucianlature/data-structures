@@ -75,4 +75,17 @@ Tree.prototype._find = function (currentNode, item) {
 	return found;
 };
 
+Tree.prototype.preOrder = function (node, callback) {
+	var numberOfNodes = node.getChildrenSize(),
+		children = node.getChildren();
+
+	if (callback) {
+		callback(node);
+	}
+
+	children.forEach(function (child) {
+        this.preOrder(child, callback);
+    }, this);
+};
+
 module.exports = Tree;

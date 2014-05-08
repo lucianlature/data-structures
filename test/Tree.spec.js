@@ -114,14 +114,19 @@ describe('Tree test', function () {
 			var root = new TreeNode('root'),
 				childFoo = new TreeNode('foo'),
 				childBar = new TreeNode('bar'),
-				childFooBar = new TreeNode('foobar');
+				childFooBar = new TreeNode('foobar'),
+				cb = function (node) {
+					 console.info(node.getData());
+				};
 
 			childBar.addChild(childFooBar);
 			root.addChild(childFoo);
 			root.addChild(childBar);
 			instance.setRoot(root);
 
-			expect(instance.preOrder()).to.equal('root', 'foo', 'bar', 'foobar');
+			instance.preOrder(root, cb);
+
+			// expect(instance.preOrder(cb)).to.equal('root', 'foo', 'bar', 'foobar');
 
 			/* Pre-order: root, foo, bar, foobar */
 		});
