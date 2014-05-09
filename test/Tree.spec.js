@@ -115,8 +115,9 @@ describe('Tree test', function () {
 				childFoo = new TreeNode('foo'),
 				childBar = new TreeNode('bar'),
 				childFooBar = new TreeNode('foobar'),
+				nodes = [],
 				cb = function (node) {
-					 console.info(node.getData());
+					nodes.push(node.getData());
 				};
 
 			childBar.addChild(childFooBar);
@@ -126,9 +127,9 @@ describe('Tree test', function () {
 
 			instance.preOrder(root, cb);
 
-			// expect(instance.preOrder(cb)).to.equal('root', 'foo', 'bar', 'foobar');
-
 			/* Pre-order: root, foo, bar, foobar */
+			expect(nodes).to.eql(['root', 'foo', 'bar', 'foobar']);
+
 		});
 	});
 });
