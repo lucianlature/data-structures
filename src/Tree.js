@@ -84,8 +84,21 @@ Tree.prototype.preOrder = function (node, callback) {
 	}
 
 	children.forEach(function (child) {
-        this.preOrder(child, callback);
+		this.preOrder(child, callback);
+	}, this);
+};
+
+Tree.prototype.postOrder = function (node, callback) {
+	var numberOfNodes = node.getChildrenSize(),
+		children = node.getChildren();
+
+	children.forEach(function (child) {
+        this.postOrder(child, callback);
     }, this);
+
+    if (callback) {
+		callback(node);
+	}
 };
 
 module.exports = Tree;

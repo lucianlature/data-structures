@@ -132,4 +132,29 @@ describe('Tree test', function () {
 
 		});
 	});
+
+	describe('Tree post-order traversal', function () {
+		it('should return the correct order of the nodes', function () {
+			var root = new TreeNode('root'),
+				childFoo = new TreeNode('foo'),
+				childBar = new TreeNode('bar'),
+				childFooBar = new TreeNode('foobar'),
+				nodes = [],
+				cb = function (node) {
+					nodes.push(node.getData());
+				};
+
+			childBar.addChild(childFooBar);
+			root.addChild(childFoo);
+			root.addChild(childBar);
+			instance.setRoot(root);
+
+			instance.postOrder(root, cb);
+
+			/* Post-order: foo, foobar, bar, root */
+			expect(nodes).to.eql(['foo', 'foobar', 'bar', 'root']);
+
+		});
+	});
+
 });
