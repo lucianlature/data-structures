@@ -1,6 +1,7 @@
 'use strict';
 
-var TreeNode = require('./TreeNode');
+var TreeNode = require('./TreeNode'),
+	Queue = require('./Queue');
 
 /**
  * @constructor
@@ -93,12 +94,32 @@ Tree.prototype.postOrder = function (node, callback) {
 		children = node.getChildren();
 
 	children.forEach(function (child) {
-        this.postOrder(child, callback);
-    }, this);
+		this.postOrder(child, callback);
+	}, this);
 
-    if (callback) {
+	if (callback) {
 		callback(node);
 	}
 };
+
+Tree.prototype.bfs = function (root, callback) {
+	var q = new Queue(),
+		node,
+		// numberOfNodes = root.getChildrenSize(),
+		children;
+
+	q.enqueue(root);
+
+	while (!q.isEmpty()) {
+		node = q.dequeue();
+		children = node.getChildren();
+		if (callback) {
+			callback(node);
+		}
+		children.forEach(function (child) {
+			q.enqueue(child);
+		}, this);
+	}
+}
 
 module.exports = Tree;
