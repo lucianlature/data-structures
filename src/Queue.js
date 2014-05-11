@@ -24,7 +24,7 @@ Queue.prototype.isEmpty = function () {
  * @param  {Any} item Any type of items can be added
  */
 Queue.prototype.enqueue = function (item) {
-	this._items.push(item);
+	this._items.unshift(item);
 };
 
 /** @description  Removes the front item from the queue.

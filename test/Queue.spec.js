@@ -65,7 +65,7 @@ describe('Queue test', function () {
 			instance.enqueue('bar');
 			instance.enqueue(4);
 			removedItem = instance.dequeue();
-			expect(removedItem).to.equal(4);
+			expect(removedItem).to.equal('foo');
 			removedItem = instance.dequeue();
 			expect(removedItem).to.equal('bar');
 
