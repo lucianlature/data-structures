@@ -115,20 +115,24 @@ describe('Tree test', function () {
 				childFoo = new TreeNode('foo'),
 				childBar = new TreeNode('bar'),
 				childFooBar = new TreeNode('foobar'),
+				childBaz = new TreeNode('baz'),
+				childFooBaz = new TreeNode('foobaz'),
 				nodes = [],
 				cb = function (node) {
 					nodes.push(node.getData());
 				};
 
 			childBar.addChild(childFooBar);
+			childFoo.addChild(childBaz);
+			childBaz.addChild(childFooBaz);
 			root.addChild(childFoo);
 			root.addChild(childBar);
 			instance.setRoot(root);
 
-			instance.preOrder(root, cb);
+			instance.dfsPreOrder(root, cb);
 
-			/* Pre-order: root, foo, bar, foobar */
-			expect(nodes).to.eql(['root', 'foo', 'bar', 'foobar']);
+			/* DFS Pre-order: root, foo, baz, foobaz, bar, foobar */
+			expect(nodes).to.eql(['root', 'foo', 'baz', 'foobaz', 'bar', 'foobar']);
 
 		});
 	});
@@ -153,9 +157,9 @@ describe('Tree test', function () {
 			root.addChild(childBar);
 			instance.setRoot(root);
 
-			instance.postOrder(root, cb);
+			instance.dfsPostOrder(root, cb);
 
-			/* Post-order: foobaz, baz, foo, foobar, bar, root */
+			/* DFS Post-order: foobaz, baz, foo, foobar, bar, root */
 			expect(nodes).to.eql(['foobaz', 'baz', 'foo', 'foobar', 'bar', 'root']);
 		});
 	});
@@ -182,7 +186,7 @@ describe('Tree test', function () {
 
 			instance.bfs(root, cb);
 
-			/* BFS traversal: root, foo, bar, baz, foobar, foobaz */
+			/* BFS traversal (level-order): root, foo, bar, baz, foobar, foobaz */
 			expect(nodes).to.eql(['root', 'foo', 'bar', 'baz', 'foobar', 'foobaz']);
 
 		});

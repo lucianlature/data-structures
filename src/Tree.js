@@ -76,7 +76,7 @@ Tree.prototype._find = function (currentNode, item) {
 	return found;
 };
 
-Tree.prototype.preOrder = function (node, callback) {
+Tree.prototype.dfsPreOrder = function (node, callback) {
 	var numberOfNodes = node.getChildrenSize(),
 		children = node.getChildren();
 
@@ -89,7 +89,7 @@ Tree.prototype.preOrder = function (node, callback) {
 	}, this);
 };
 
-Tree.prototype.postOrder = function (node, callback) {
+Tree.prototype.dfsPostOrder = function (node, callback) {
 	var numberOfNodes = node.getChildrenSize(),
 		children = node.getChildren();
 
