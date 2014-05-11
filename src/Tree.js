@@ -85,7 +85,7 @@ Tree.prototype.dfsPreOrder = function (node, callback) {
 	}
 
 	children.forEach(function (child) {
-		this.preOrder(child, callback);
+		this.dfsPreOrder(child, callback);
 	}, this);
 };
 
@@ -94,7 +94,7 @@ Tree.prototype.dfsPostOrder = function (node, callback) {
 		children = node.getChildren();
 
 	children.forEach(function (child) {
-		this.postOrder(child, callback);
+		this.dfsPostOrder(child, callback);
 	}, this);
 
 	if (callback) {
