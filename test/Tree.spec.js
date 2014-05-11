@@ -157,4 +157,32 @@ describe('Tree test', function () {
 		});
 	});
 
+	describe('Tree BFS traversal', function () {
+		it('should return the correct order of the nodes', function () {
+			var root = new TreeNode('root'),
+				childFoo = new TreeNode('foo'),
+				childBar = new TreeNode('bar'),
+				childFooBar = new TreeNode('foobar'),
+				childBaz = new TreeNode('baz'),
+				childFooBaz = new TreeNode('foobaz'),
+				nodes = [],
+				cb = function (node) {
+					nodes.push(node.getData());
+				};
+
+			childBar.addChild(childFooBar);
+			childFoo.addChild(childBaz);
+			childBaz.addChild(childFooBaz);
+			root.addChild(childFoo);
+			root.addChild(childBar);
+			instance.setRoot(root);
+
+			instance.bfs(root, cb);
+
+			/* BFS traversal: root, foo, bar, baz, foobar, foobaz */
+			expect(nodes).to.eql(['root', 'foo', 'bar', 'baz', 'foobar', 'foobaz']);
+
+		});
+	});
+
 });

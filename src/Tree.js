@@ -105,7 +105,7 @@ Tree.prototype.postOrder = function (node, callback) {
 Tree.prototype.bfs = function (root, callback) {
 	var q = new Queue(),
 		node,
-		// numberOfNodes = root.getChildrenSize(),
+		child,
 		children;
 
 	q.enqueue(root);
