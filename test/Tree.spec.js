@@ -139,21 +139,24 @@ describe('Tree test', function () {
 				childFoo = new TreeNode('foo'),
 				childBar = new TreeNode('bar'),
 				childFooBar = new TreeNode('foobar'),
+				childBaz = new TreeNode('baz'),
+				childFooBaz = new TreeNode('foobaz'),
 				nodes = [],
 				cb = function (node) {
 					nodes.push(node.getData());
 				};
 
 			childBar.addChild(childFooBar);
+			childFoo.addChild(childBaz);
+			childBaz.addChild(childFooBaz);
 			root.addChild(childFoo);
 			root.addChild(childBar);
 			instance.setRoot(root);
 
 			instance.postOrder(root, cb);
 
-			/* Post-order: foo, foobar, bar, root */
-			expect(nodes).to.eql(['foo', 'foobar', 'bar', 'root']);
-
+			/* Post-order: foobaz, baz, foo, foobar, bar, root */
+			expect(nodes).to.eql(['foobaz', 'baz', 'foo', 'foobar', 'bar', 'root']);
 		});
 	});
 
