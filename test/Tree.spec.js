@@ -1,10 +1,10 @@
 'use strict';
 
 var Tree = require('../src/Tree'),
-		TreeNode = require('../src/TreeNode'),
-		chai = require('chai'),
-		expect = chai.expect,
-		instance = null;
+	TreeNode = require('../src/TreeNode'),
+	chai = require('chai'),
+	expect = chai.expect,
+	instance = null;
 
 describe('Tree test', function () {
 
