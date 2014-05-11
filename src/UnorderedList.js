@@ -8,9 +8,9 @@ var Node = require('./Node');
  * relative position with respect to the others.
  */
 function UnorderedList () {
-	this._head = null;
-	this._tail = null;
-	this._length = 0;
+    this._head = null;
+    this._tail = null;
+    this._length = 0;
 }
 
 /**
@@ -18,7 +18,7 @@ function UnorderedList () {
  * @return {Boolean} True if the list is empty, false otherwise
  */
 UnorderedList.prototype.isEmpty = function () {
-	return this._head === null;
+    return this._head === null;
 };
 
 /**
@@ -39,7 +39,7 @@ UnorderedList.prototype.add = function (item) {
  * @return {Number} Number of items
  */
 UnorderedList.prototype.size = function () {
-	return this._length;
+    return this._length;
 };
 
 /**
@@ -48,18 +48,18 @@ UnorderedList.prototype.size = function () {
  * @return {boolean} Returns true if item is found
  */
 UnorderedList.prototype.search = function (item) {
-	var current = this._head,
-		found = false;
+    var current = this._head,
+        found = false;
 
-	while (current !== null && !found) {
-		if (current.getData() === item) {
-			found = true;
-		} else {
-			current = current.getNext();
-		}
-	}
+    while (current !== null && !found) {
+        if (current.getData() === item) {
+            found = true;
+        } else {
+            current = current.getNext();
+        }
+    }
 
-	return found;
+    return found;
 };
 
 /**
@@ -67,31 +67,31 @@ UnorderedList.prototype.search = function (item) {
  * @param  {Any} item
  */
 UnorderedList.prototype.remove = function (item) {
-	var current = this._head,
-		previous = null,
-		found = false;
+    var current = this._head,
+        previous = null,
+        found = false;
 
-	// check if item is in the list
-	if (this.indexOf(item) === -1) {
-		return;
-	}
+    // check if item is in the list
+    if (this.indexOf(item) === -1) {
+        return;
+    }
 
-	while (!found) {
-		if (current.getData() === item) {
-			found = true;
-		} else {
-			previous = current;
-			current = current.getNext();
-		}
-	}
+    while (!found) {
+        if (current.getData() === item) {
+            found = true;
+        } else {
+            previous = current;
+            current = current.getNext();
+        }
+    }
 
-	if (previous === null) {
-		this._head = current.getNext();
-	} else {
-		previous.setNext(current.getNext());
-	}
+    if (previous === null) {
+        this._head = current.getNext();
+    } else {
+        previous.setNext(current.getNext());
+    }
 
-	this._length -= 1;
+    this._length -= 1;
 
 };
 
@@ -100,15 +100,15 @@ UnorderedList.prototype.remove = function (item) {
  * @param  {Any} item
  */
 UnorderedList.prototype.append = function (item) {
-	var temp = new Node (item);
-	if (this._tail === null) {
-		this._head = temp;
-		this._tail = temp;
-	} else {
-		this._tail.setNext(temp);
-		this._tail = temp;
-	}
-	this._length += 1;
+    var temp = new Node (item);
+    if (this._tail === null) {
+        this._head = temp;
+        this._tail = temp;
+    } else {
+        this._tail.setNext(temp);
+        this._tail = temp;
+    }
+    this._length += 1;
 };
 
 /**
@@ -117,19 +117,19 @@ UnorderedList.prototype.append = function (item) {
  * @return {Number} Index or -1 if this list does not contain the element.
  */
 UnorderedList.prototype.indexOf = function (item) {
-	var current = this._head,
-		index = 0;
+    var current = this._head,
+        index = 0;
 
-	while (current !== null) {
-		if (current.getData() === item) {
-			return index;
-		} else {
-			current = current.getNext();
-		}
-		index += 1;
-	}
+    while (current !== null) {
+        if (current.getData() === item) {
+            return index;
+        } else {
+            current = current.getNext();
+        }
+        index += 1;
+    }
 
-	return -1;
+    return -1;
 };
 
 /**
@@ -138,22 +138,22 @@ UnorderedList.prototype.indexOf = function (item) {
  * @param  {Any} item
  */
 UnorderedList.prototype.insert = function (position, item) {
-	var current = this._head,
-		temp = new Node (item),
-		index = 0;
+    var current = this._head,
+        temp = new Node (item),
+        index = 0;
 
-	while (current !== null) {
+    while (current !== null) {
 
-		if (index === position - 1) {
-			var next = current.getNext();
-			current.setNext(temp);
-			temp.setNext(next);
-			this._length += 1;
-		}
+        if (index === position - 1) {
+            var next = current.getNext();
+            current.setNext(temp);
+            temp.setNext(next);
+            this._length += 1;
+        }
 
-		current = current.getNext();
-		index += 1;
-	}
+        current = current.getNext();
+        index += 1;
+    }
 };
 
 /**
@@ -162,31 +162,31 @@ UnorderedList.prototype.insert = function (position, item) {
  * @return {*}
  */
 UnorderedList.prototype.pop = function (position) {
-	var current = this._head,
-		previous = null,
-		foundPos = false,
-		position = (typeof position === 'undefined') ? this.size() - 1 : position,
-		index = 0;
+    var current = this._head,
+        previous = null,
+        foundPos = false,
+        position = (typeof position === 'undefined') ? this.size() - 1 : position,
+        index = 0;
 
-	while (!foundPos) {
-		if (index === position) {
-			foundPos = true;
-		} else {
-			previous = current;
-			current = current.getNext();
-			index += 1;
-		}
-	}
+    while (!foundPos) {
+        if (index === position) {
+            foundPos = true;
+        } else {
+            previous = current;
+            current = current.getNext();
+            index += 1;
+        }
+    }
 
-	if (previous === null) {
-		this._head = current.getNext();
-	} else {
-		previous.setNext(current.getNext());
-	}
+    if (previous === null) {
+        this._head = current.getNext();
+    } else {
+        previous.setNext(current.getNext());
+    }
 
-	this._length -= 1;
+    this._length -= 1;
 
-	return current;
+    return current;
 };
 
 /**
@@ -197,27 +197,27 @@ UnorderedList.prototype.pop = function (position) {
  * @return {UnorderedList} The sliced list
  */
 UnorderedList.prototype.slice = function (startPosition, stopPosition) {
-	var slice = new UnorderedList(),
-		current = this._head,
-		foundPos = false,
-		index = 0;
+    var slice = new UnorderedList(),
+        current = this._head,
+        foundPos = false,
+        index = 0;
 
-	while (!foundPos) {
-		if (index === startPosition) {
-			foundPos = true;
-		} else {
-			current = current.getNext();
-			index += 1;
-		}
-	}
+    while (!foundPos) {
+        if (index === startPosition) {
+            foundPos = true;
+        } else {
+            current = current.getNext();
+            index += 1;
+        }
+    }
 
-	while (index < stopPosition) {
-		slice.append(current.getData());
-		current = current.getNext();
-		index += 1;
-	}
+    while (index < stopPosition) {
+        slice.append(current.getData());
+        current = current.getNext();
+        index += 1;
+    }
 
-	return slice;
+    return slice;
 }
 
 module.exports = UnorderedList;
