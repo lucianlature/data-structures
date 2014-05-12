@@ -1,8 +1,5 @@
 'use strict';
 
-var UnorderedList = require('./UnorderedList'),
-	extend = require('../lib/extend');
-
 /**
  * @constructor
  * @description The basic building block for the tree data structures implementation.

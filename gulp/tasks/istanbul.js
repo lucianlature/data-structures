@@ -1,3 +1,5 @@
+'use strict';
+
 var gulp = require('gulp');
 var istanbul = require('gulp-istanbul');
 var mocha = require('gulp-mocha'); // Using mocha here, but any test framework will work

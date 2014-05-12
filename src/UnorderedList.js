@@ -218,6 +218,6 @@ UnorderedList.prototype.slice = function (startPosition, stopPosition) {
     }
 
     return slice;
-}
+};
 
 module.exports = UnorderedList;
