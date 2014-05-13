@@ -7,6 +7,8 @@
  */
 function BinaryTree () {
     this._root = null;
+    this.leftChild = null;
+    this.rightChild = null;
 }
 
 module.exports = BinaryTree;
