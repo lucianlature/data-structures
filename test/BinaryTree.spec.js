@@ -22,6 +22,11 @@ describe('BinaryTree test', function () {
     it('should be able to instantiate a new BinaryTree', function () {
       expect(instance).to.be.an.instanceof(BinaryTree);
     });
+    it('should be able to instantiate a new BinaryTree with a root value', function () {
+      var root = new TreeNode('root');
+      instance = new BinaryTree(root);
+      expect(instance.getRoot().getData()).to.equal('root');
+    });
   });
 
   describe('BinaryTree getRoot', function () {
@@ -31,4 +36,18 @@ describe('BinaryTree test', function () {
       expect(instance.getRoot().getData()).to.equal('root');
     });
   });
+
+  describe('BinaryTree getLeftChild', function () {
+    it('should return null is left child is not set', function () {
+      expect(instance.getLeftChild()).to.be.null;
+    });
+    it('should return the correct value of left child when set', function () {
+      var left = new TreeNode('left'),
+          root = new TreeNode('root');
+      instance.setRoot(root);
+      instance.insertLeft(left);
+      expect(instance.getLeftChild().getRoot().getData()).to.equal('left');
+    });
+  });
+
 });
