@@ -11,4 +11,12 @@ function BinaryTree () {
     this.rightChild = null;
 }
 
+BinaryTree.prototype.getRoot = function () {
+    return this._root;
+};
+
+BinaryTree.prototype.setRoot = function (newRoot) {
+    this._root = newRoot;
+};
+
 module.exports = BinaryTree;
