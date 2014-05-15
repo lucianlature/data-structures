@@ -33,7 +33,7 @@ describe('BinaryTree test', function () {
     it('should return the correct value of the root', function () {
       var root = new TreeNode('root');
       instance.setRoot(root);
-      expect(instance.getRoot().getData()).to.equal('root');
+      expect(instance.getData()).to.equal('root');
     });
   });
 
@@ -46,7 +46,7 @@ describe('BinaryTree test', function () {
           root = new TreeNode('root');
       instance.setRoot(root);
       instance.insertLeft(left);
-      expect(instance.getLeftChild().getRoot().getData()).to.equal('left');
+      expect(instance.getLeftChild().getData()).to.equal('left');
     });
   });
 
@@ -59,7 +59,7 @@ describe('BinaryTree test', function () {
           root = new TreeNode('root');
       instance.setRoot(root);
       instance.insertRight(right);
-      expect(instance.getRightChild().getRoot().getData()).to.equal('right');
+      expect(instance.getRightChild().getData()).to.equal('right');
     });
   });
 
