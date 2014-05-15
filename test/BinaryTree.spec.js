@@ -50,4 +50,17 @@ describe('BinaryTree test', function () {
     });
   });
 
+  describe('BinaryTree getRightChild', function () {
+    it('should return null is right child is not set', function () {
+      expect(instance.getRightChild()).to.be.null;
+    });
+    it('should return the correct value of right child when set', function () {
+      var right = new TreeNode('right'),
+          root = new TreeNode('root');
+      instance.setRoot(root);
+      instance.insertRight(right);
+      expect(instance.getRightChild().getRoot().getData()).to.equal('right');
+    });
+  });
+
 });
