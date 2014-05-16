@@ -47,7 +47,7 @@ BinaryTree.prototype.insertRight = function (newNode) {
         this._rightChild = temp;
     } else {
         temp._rightChild = this._rightChild;
-        self._rightChild = temp;
+        this._rightChild = temp;
     }
 };
 
