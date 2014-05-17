@@ -63,4 +63,32 @@ describe('BinaryTree test', function () {
     });
   });
 
+  describe('BinaryTree pre-order traversal', function () {
+    it('should return the correct order of the nodes', function () {
+      var root = new TreeNode('root'),
+        childFoo = new TreeNode('foo'),
+        childBar = new TreeNode('bar'),
+        childFooBar = new TreeNode('foobar'),
+        childBaz = new TreeNode('baz'),
+        childFooBaz = new TreeNode('foobaz'),
+        nodes = [],
+        cb = function (node) {
+          nodes.push(node.getData());
+        };
+
+      childBar.addChild(childFooBar);
+      childFoo.addChild(childBaz);
+      childBaz.addChild(childFooBaz);
+      root.addChild(childFoo);
+      root.addChild(childBar);
+      instance.setRoot(root);
+
+      instance.dfsPreOrder(root, cb);
+
+      /* DFS Pre-order: root, foo, baz, foobaz, bar, foobar */
+      expect(nodes).to.eql(['root', 'foo', 'baz', 'foobaz', 'bar', 'foobar']);
+
+    });
+  });
+
 });

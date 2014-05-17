@@ -51,4 +51,30 @@ BinaryTree.prototype.insertRight = function (newNode) {
     }
 };
 
+BinaryTree.prototype.preorder = function preorder (callback) {
+
+  maybe(callback(this._root));
+
+  if (this._leftChild) {
+    maybe(this._leftChild.preorder(callback));
+  }
+  if (this._rightChild) {
+    maybe(this._rightChild.preorder(callback));
+  }
+};
+
+function maybe (fn) {
+  return function () {
+    var i;
+    if (arguments.length === 0) {
+      return;
+    } else {
+      for (i = 0; i < arguments.length; ++i) {
+        if (arguments[i] === null) return;
+      }
+      return fn.apply(this, arguments);
+    }
+  }
+}
+
 module.exports = BinaryTree;
