@@ -17,7 +17,7 @@ describe('BinaryTree test', function () {
     instance = null;
     done();
   });
-  /*
+
   describe('BinaryTree instantiation', function () {
     it('should be able to instantiate a new BinaryTree', function () {
       expect(instance).to.be.an.instanceof(BinaryTree);
@@ -61,7 +61,7 @@ describe('BinaryTree test', function () {
       expect(instance.getRightChild().getData()).to.equal('right');
     });
   });
-  */
+
   describe('BinaryTree pre-order traversal', function () {
     it('should return the correct order of the nodes', function () {
       var nodes = [],

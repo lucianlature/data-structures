@@ -1,47 +1,13 @@
-/*
-from pythonds.basic.stack import Stack
-from pythonds.trees.binaryTree import BinaryTree
-
-def buildParseTree(fpexp):
-    fplist = fpexp.split()
-    pStack = Stack()
-    eTree = BinaryTree('')
-    pStack.push(eTree)
-    currentTree = eTree
-    for i in fplist:
-        if i == '(':
-            currentTree.insertLeft('')
-            pStack.push(currentTree)
-            currentTree = currentTree.getLeftChild()
-        elif i not in ['+', '-', '*', '/', ')']:
-            currentTree.setRootVal(int(i))
-            parent = pStack.pop()
-            currentTree = parent
-        elif i in ['+', '-', '*', '/']:
-            currentTree.setRootVal(i)
-            currentTree.insertRight('')
-            pStack.push(currentTree)
-            currentTree = currentTree.getRightChild()
-        elif i == ')':
-            currentTree = pStack.pop()
-        else:
-            raise ValueError
-    return eTree
-
-pt = buildParseTree("( ( 10 + 5 ) * 3 )")
-pt.postorder()  #defined and explained in the next section
-*/
-
 'use strict';
 
 var Stack = require('../../src/Stack'),
     BinaryTree = require('../../src/BinaryTree'),
     TreeNode = require('../../src/TreeNode'),
     expression = "( ( 10 + 5 ) * 3 )",
-    parsedTree;
+    parseTree;
 
 function buildParseTree (expression) {
-    var tokens = expression.split(''),
+    var tokens = expression.split(' '),
         stack = new Stack(),
         tree = new BinaryTree(new TreeNode('')),
         currentTree = tree,
@@ -49,9 +15,7 @@ function buildParseTree (expression) {
 
     stack.push(tree);
 
-    tokens.filter(function (token) {
-        return token !== ' ';
-    }).forEach(function (token) {
+    tokens.forEach(function (token) {
         if (token === '(') {
             currentTree.insertLeft(new TreeNode(''));
             stack.push(currentTree);
@@ -68,14 +32,45 @@ function buildParseTree (expression) {
         } else if (token === ')') {
             currentTree = stack.pop();
         } else {
-            throw new Error('Token unknown');
+            throw new Error('Unknown token');
         }
     });
 
     return tree;
 }
 
-parsedTree = buildParseTree(expression);
+function evaluate (parseTree) {
+    var operators = {
+            '+': function (a, b) {
+                return a + b;
+            },
+            '-': function (a, b) {
+                return a - b;
+            },
+            '*': function (a, b) {
+                return a * b;
+            },
+            '/': function (a, b) {
+                return a / b;
+            }
+        },
+        leftC = parseTree.getLeftChild(),
+        rightC = parseTree.getRightChild(),
+        fn;
 
-console.info(parsedTree);
+    if (leftC && rightC) {
+        fn = operators[parseTree.getRoot().getData().data];
+        return fn(evaluate(leftC), evaluate(rightC));
+    } else {
+        return parseTree.getRoot().getData().data;
+    }
+}
+
+parseTree = buildParseTree(expression);
+/*
+parseTree.postorder(function (node) {
+    console.info(node.getData().data);
+});
+*/
+console.info(evaluate(parseTree));
 
