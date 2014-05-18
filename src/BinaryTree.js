@@ -65,6 +65,16 @@ BinaryTree.prototype.preorder = function preorder (callback) {
   }
 };
 
+BinaryTree.prototype.postorder = function postorder (callback) {
+  if (this._leftChild) {
+    maybe(this._leftChild.postorder(callback));
+  }
+  if (this._rightChild) {
+    maybe(this._rightChild.postorder(callback));
+  }
+  maybe(callback(this._root));
+};
+
 function maybe (fn) {
   return function () {
     var i;

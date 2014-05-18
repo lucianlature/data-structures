@@ -84,4 +84,25 @@ describe('BinaryTree test', function () {
     });
   });
 
+  describe('BinaryTree post-order traversal', function () {
+    it('should return the correct order of the nodes', function () {
+      var nodes = [],
+          cb = function (node) {
+            nodes.push(node.getData());
+          };
+
+      instance.setRoot('root');
+      instance.insertLeft('foo');
+      instance.insertRight('bar');
+      instance.getLeftChild().insertLeft('foobar');
+      instance.getLeftChild().insertRight('baz');
+      instance.getRightChild().insertLeft('foobaz');
+
+      instance.postorder(cb);
+
+      /* DFS Post-order: foobar, baz, foo, foobaz, bar, root */
+      expect(nodes).to.eql(['foobar', 'baz', 'foo', 'foobaz', 'bar', 'root']);
+    });
+  });
+
 });
