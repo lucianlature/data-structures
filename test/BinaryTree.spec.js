@@ -78,7 +78,7 @@ describe('BinaryTree test', function () {
 
       instance.preorder(cb);
 
-      /* DFS Pre-order: root, foo, foobar, baz, bar, foobaz */
+      /* Pre-order: root, foo, foobar, baz, bar, foobaz */
       expect(nodes).to.eql(['root', 'foo', 'foobar', 'baz', 'bar', 'foobaz']);
 
     });
@@ -100,8 +100,29 @@ describe('BinaryTree test', function () {
 
       instance.postorder(cb);
 
-      /* DFS Post-order: foobar, baz, foo, foobaz, bar, root */
+      /* Post-order: foobar, baz, foo, foobaz, bar, root */
       expect(nodes).to.eql(['foobar', 'baz', 'foo', 'foobaz', 'bar', 'root']);
+    });
+  });
+
+  describe('BinaryTree in-order traversal', function () {
+    it('should return the correct order of the nodes', function () {
+      var nodes = [],
+          cb = function (node) {
+            nodes.push(node.getData());
+          };
+
+      instance.setRoot('root');
+      instance.insertLeft('foo');
+      instance.insertRight('bar');
+      instance.getLeftChild().insertLeft('foobar');
+      instance.getLeftChild().insertRight('baz');
+      instance.getRightChild().insertLeft('foobaz');
+
+      instance.inorder(cb);
+
+      /* In-order: foobar, foo, baz, root, foobaz, bar */
+      expect(nodes).to.eql(['foobar', 'foo', 'baz', 'root', 'foobaz', 'bar']);
     });
   });
 

@@ -75,6 +75,16 @@ BinaryTree.prototype.postorder = function postorder (callback) {
   maybe(callback(this._root));
 };
 
+BinaryTree.prototype.inorder = function inorder (callback) {
+  if (this._leftChild) {
+    maybe(this._leftChild.inorder(callback));
+  }
+  maybe(callback(this._root));
+  if (this._rightChild) {
+    maybe(this._rightChild.inorder(callback));
+  }
+};
+
 function maybe (fn) {
   return function () {
     var i;
