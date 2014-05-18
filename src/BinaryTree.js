@@ -1,12 +1,14 @@
 'use strict';
 
+var TreeNode = require('./TreeNode');
+
 /**
  * @constructor
  * @description A tree data structure in which each node has at most two children (referred to as the left child and
  * the right child).
  */
 function BinaryTree (newRoot) {
-    this._root = newRoot || null;
+    this._root = new TreeNode(newRoot) || null;
     this._leftChild = null;
     this._rightChild = null;
 }
@@ -20,7 +22,7 @@ BinaryTree.prototype.getRoot = function () {
 }
 
 BinaryTree.prototype.setRoot = function (newRoot) {
-    this._root = newRoot;
+    this._root = new TreeNode(newRoot);
 };
 
 BinaryTree.prototype.getLeftChild = function () {
