@@ -9,7 +9,7 @@ var Stack = require('../../src/Stack'),
 function buildParseTree (expression) {
     var tokens = expression.split(' '),
         stack = new Stack(),
-        tree = new BinaryTree(new TreeNode('')),
+        tree = new BinaryTree(''),
         currentTree = tree,
         parent;
 
@@ -17,16 +17,16 @@ function buildParseTree (expression) {
 
     tokens.forEach(function (token) {
         if (token === '(') {
-            currentTree.insertLeft(new TreeNode(''));
+            currentTree.insertLeft('');
             stack.push(currentTree);
             currentTree = currentTree.getLeftChild();
         } else if (['+', '-', '*', '/', ')'].indexOf(token) < 0) {
-            currentTree.setRoot(new TreeNode(+token));
+            currentTree.setRoot(+token);
             parent = stack.pop();
             currentTree = parent;
         } else if (['+', '-', '*', '/'].indexOf(token) >= 0) {
-            currentTree.setRoot(new TreeNode(token));
-            currentTree.insertRight(new TreeNode(''));
+            currentTree.setRoot(token);
+            currentTree.insertRight('');
             stack.push(currentTree);
             currentTree = currentTree.getRightChild();
         } else if (token === ')') {
@@ -59,10 +59,10 @@ function evaluate (parseTree) {
         fn;
 
     if (leftC && rightC) {
-        fn = operators[parseTree.getRoot().getData().data];
+        fn = operators[parseTree.getRoot().getData()];
         return fn(evaluate(leftC), evaluate(rightC));
     } else {
-        return parseTree.getRoot().getData().data;
+        return parseTree.getRoot().getData();
     }
 }
 
