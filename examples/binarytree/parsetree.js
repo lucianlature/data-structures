@@ -2,7 +2,6 @@
 
 var Stack = require('../../src/Stack'),
     BinaryTree = require('../../src/BinaryTree'),
-    TreeNode = require('../../src/TreeNode'),
     expression = "( ( 10 + 5 ) * 3 )",
     parseTree;
 
