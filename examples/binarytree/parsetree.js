@@ -66,10 +66,10 @@ function evaluate (parseTree) {
 }
 
 parseTree = buildParseTree(expression);
+console.info(evaluate(parseTree));
 /*
 parseTree.postorder(function (node) {
-    console.info(node.getData().data);
+    console.info(node.getData());
 });
 */
-console.info(evaluate(parseTree));
 
