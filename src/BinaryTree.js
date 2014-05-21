@@ -13,22 +13,41 @@ function BinaryTree (newRoot) {
     this._rightChild = null;
 }
 
+/**
+ * @description Returns associated data for the node
+ * @this {BinaryTree}
+ * @return {*}
+ */
 BinaryTree.prototype.getData = function () {
   return this._root.getData();
 }
 
+/**
+ * @description Returns the root node
+ * @return {TreeNode}
+ */
 BinaryTree.prototype.getRoot = function () {
     return this._root;
 }
 
+/**
+ * @description Set the root node
+ */
 BinaryTree.prototype.setRoot = function (newRoot) {
     this._root = new TreeNode(newRoot);
 };
 
+/**
+ * @description Returns the left child
+ * @return {BinaryTree}
+ */
 BinaryTree.prototype.getLeftChild = function () {
   return this._leftChild;
 };
 
+/**
+ * @description Populate the left child
+ */
 BinaryTree.prototype.insertLeft = function (newNode) {
     var temp = new BinaryTree(newNode);
     if (this._leftChild === null) {
@@ -39,10 +58,17 @@ BinaryTree.prototype.insertLeft = function (newNode) {
     }
 };
 
+/**
+ * @description Returns the left child
+ * @return {BinaryTree}
+ */
 BinaryTree.prototype.getRightChild = function () {
   return this._rightChild;
 };
 
+/**
+ * @description Populate the right child
+ */
 BinaryTree.prototype.insertRight = function (newNode) {
     var temp = new BinaryTree(newNode);
     if (this._rightChild === null) {
@@ -53,6 +79,11 @@ BinaryTree.prototype.insertRight = function (newNode) {
     }
 };
 
+/**
+ * @description Traverse the tree in pre-order
+ * @param {Function} callback Callback function to be called
+ * on each node
+ */
 BinaryTree.prototype.preorder = function preorder (callback) {
 
   maybe(callback(this._root));
@@ -65,6 +96,11 @@ BinaryTree.prototype.preorder = function preorder (callback) {
   }
 };
 
+/**
+ * @description Traverse the tree in post-order
+ * @param {Function} callback Callback function to be called
+ * on each node
+ */
 BinaryTree.prototype.postorder = function postorder (callback) {
   if (this._leftChild) {
     maybe(this._leftChild.postorder(callback));
@@ -75,6 +111,11 @@ BinaryTree.prototype.postorder = function postorder (callback) {
   maybe(callback(this._root));
 };
 
+/**
+ * @description Traverse the tree in in-order
+ * @param {Function} callback Callback function to be called
+ * on each node
+ */
 BinaryTree.prototype.inorder = function inorder (callback) {
   if (this._leftChild) {
     maybe(this._leftChild.inorder(callback));
@@ -85,6 +126,11 @@ BinaryTree.prototype.inorder = function inorder (callback) {
   }
 };
 
+/**
+ * @description A function fn takes a value as a parameter,
+ * and do nothing if the parameter for fn is nothing.
+ * @param {Function} fn
+ */
 function maybe (fn) {
   return function () {
     var i;
