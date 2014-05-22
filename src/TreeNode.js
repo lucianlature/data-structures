@@ -4,8 +4,9 @@
  * @constructor
  * @description The basic building block for the tree data structures implementation.
  * Each node object must hold at least two pieces of information:
- * the data field of the node (the node itself)
- * a reference to the next node.
+ * the data field of the node (the node itself) and a list of references
+ * to nodes (the "children"), with the constraints that no reference is duplicated,
+ * and none points to the root.
  */
 function TreeNode (initData) {
 	this.data = initData || null;
@@ -30,7 +31,7 @@ TreeNode.prototype.getData = function () {
 };
 
 /**
- * @description Returns associated data
+ * @description Return the list of children associated with the node
  * @this {TreeNode}
  */
 TreeNode.prototype.getChildren = function () {
@@ -38,25 +39,43 @@ TreeNode.prototype.getChildren = function () {
 };
 
 /**
- * @description Returns associated data
+ * @description Returns associated children
+ * @param {Array} newChildren
  * @this {TreeNode}
  */
 TreeNode.prototype.setChildren = function (newChildren) {
 	this.children = newChildren;
 };
 
+/**
+ * @description Return the number of children for the node
+ * @this {TreeNode}
+ */
 TreeNode.prototype.getChildrenSize = function () {
 	return this.children.length;
 };
 
+/**
+ * @description Return true if the node has children
+ * @this {TreeNode}
+ */
 TreeNode.prototype.hasChildren = function () {
 	return !!this.getChildrenSize();
 };
 
+/**
+ * @description Return the number of children for the node
+ * @param {*} newChild
+ * @this {TreeNode}
+ */
 TreeNode.prototype.addChild = function (newChild) {
 	this.children.push(newChild);
 };
 
+/**
+ * @description Remove all children of the node
+ * @this {TreeNode}
+ */
 TreeNode.prototype.removeChildren = function () {
 	this.children = [];
 };
