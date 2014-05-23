@@ -10,14 +10,27 @@ function Tree () {
     this._root = null;
 }
 
+/**
+ * @description Return the root of the tree
+ * @return {Any}
+ */
 Tree.prototype.getRoot = function () {
     return this._root;
 };
 
+/**
+ * @description Sets new value for the root
+ * @param {Any} newRoot
+ */
 Tree.prototype.setRoot = function (newRoot) {
     this._root = newRoot;
 };
 
+/**
+ * @description
+ * @param  {TreeNode} node Get the number of nodes beneath the node argument
+ * @return {Number}
+ */
 Tree.prototype.getNumberOfNodes = function (node) {
     var numberOfNodes = 0;
 
@@ -28,6 +41,12 @@ Tree.prototype.getNumberOfNodes = function (node) {
     return numberOfNodes;
 };
 
+/**
+ * description Private function to count the number of nodes for a given node
+ * @param  {TreeNode} node
+ * @return {Number} Count of nodes
+ * @private
+ */
 Tree.prototype._getNumberOfNodes = function (node) {
     var numberOfNodes = node.getChildrenSize(),
         l = numberOfNodes,
@@ -44,16 +63,32 @@ Tree.prototype._getNumberOfNodes = function (node) {
     return numberOfNodes;
 };
 
+/**
+ * @description Returns true if tree doesn't have a root node
+ * @return {Boolean}
+ */
 Tree.prototype.isEmpty = function () {
     return this._root === null;
 };
 
+/**
+ * @description Search for a given value inside tree
+ * @param  {Any} item The needle in the haystack
+ * @return {Boolean} true if found
+ */
 Tree.prototype.search = function (item) {
     if (this._root !== null) {
         return this._find(this._root, item);
     }
 };
 
+/**
+ * @description
+ * @param  {TreeNode} currentNode The node to start search from
+ * @param  {Any} item  Searched value
+ * @return {Boolean} True if found
+ * @private
+ */
 Tree.prototype._find = function (currentNode, item) {
     var current = currentNode,
         numberOfNodes = current.getChildrenSize(),
@@ -75,6 +110,12 @@ Tree.prototype._find = function (currentNode, item) {
     return found;
 };
 
+/**
+ * @description Depth-first-search pre-order algorithm
+ * @param  {[type]}   node     [description]
+ * @param  {Function} callback [description]
+ * @return {[type]}            [description]
+ */
 Tree.prototype.dfsPreOrder = function (node, callback) {
     var children = node.getChildren();
 
