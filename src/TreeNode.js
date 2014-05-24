@@ -9,8 +9,8 @@
  * and none points to the root.
  */
 function TreeNode (initData) {
-	this.data = initData || null;
-	this.children = [];
+    this.data = initData || null;
+    this.children = [];
 }
 
 /**
@@ -19,7 +19,7 @@ function TreeNode (initData) {
  * @param {Any} newData Any type of items can be added
  */
 TreeNode.prototype.setData = function (newData) {
-	this.data = newData;
+    this.data = newData;
 };
 
 /**
@@ -27,7 +27,7 @@ TreeNode.prototype.setData = function (newData) {
  * @this {TreeNode}
  */
 TreeNode.prototype.getData = function () {
-	return this.data;
+    return this.data;
 };
 
 /**
@@ -35,7 +35,7 @@ TreeNode.prototype.getData = function () {
  * @this {TreeNode}
  */
 TreeNode.prototype.getChildren = function () {
-	return this.children;
+    return this.children;
 };
 
 /**
@@ -44,7 +44,7 @@ TreeNode.prototype.getChildren = function () {
  * @this {TreeNode}
  */
 TreeNode.prototype.setChildren = function (newChildren) {
-	this.children = newChildren;
+    this.children = newChildren;
 };
 
 /**
@@ -52,7 +52,7 @@ TreeNode.prototype.setChildren = function (newChildren) {
  * @this {TreeNode}
  */
 TreeNode.prototype.getChildrenSize = function () {
-	return this.children.length;
+    return this.children.length;
 };
 
 /**
@@ -60,7 +60,7 @@ TreeNode.prototype.getChildrenSize = function () {
  * @this {TreeNode}
  */
 TreeNode.prototype.hasChildren = function () {
-	return !!this.getChildrenSize();
+    return !!this.getChildrenSize();
 };
 
 /**
@@ -69,7 +69,7 @@ TreeNode.prototype.hasChildren = function () {
  * @this {TreeNode}
  */
 TreeNode.prototype.addChild = function (newChild) {
-	this.children.push(newChild);
+    this.children.push(newChild);
 };
 
 /**
@@ -77,7 +77,7 @@ TreeNode.prototype.addChild = function (newChild) {
  * @this {TreeNode}
  */
 TreeNode.prototype.removeChildren = function () {
-	this.children = [];
+    this.children = [];
 };
 
 module.exports = TreeNode;
