@@ -9,8 +9,8 @@ Plain JavaScript implementation of a tree.
 
 The tree object returned when require is called on this library
 
-    var Tree = require('Tree');
-    var tree = new Tree();
+var Tree = require('Tree');
+var tree = new Tree();
 
 ------------
 
@@ -28,6 +28,7 @@ __Example__
 ```js
 tree.setRoot('foo');
 });
+```
 
 ---------------------------------------
 
