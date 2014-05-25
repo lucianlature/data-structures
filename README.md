@@ -10,3 +10,4 @@ Data Structures
   * [Queue](https://github.com/lucianlature/data-structures/tree/master/examples/queue)
   * [Deque](https://github.com/lucianlature/data-structures/tree/master/examples/deque)
   * [Linked List](https://github.com/lucianlature/data-structures/tree/master/examples/linkedlist)
+  * [Tree](https://github.com/lucianlature/data-structures/tree/master/examples/tree)

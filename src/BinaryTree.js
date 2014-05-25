@@ -127,7 +127,7 @@ BinaryTree.prototype.inorder = function inorder (callback) {
 };
 
 /**
- * @description A function fn takes a value as a parameter,
+ * @description Function that takes a function fn that takes a value as a parameter,
  * and do nothing if the parameter for fn is nothing.
  * @param {Function} fn
  */
