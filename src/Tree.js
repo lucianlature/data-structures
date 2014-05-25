@@ -85,7 +85,7 @@ Tree.prototype.search = function (item) {
 /**
  * @description
  * @param  {TreeNode} currentNode The node to start search from
- * @param  {Any} item  Searched value
+ * @param  {Any} item Searched value
  * @return {Boolean} True if found
  * @private
  */
@@ -111,10 +111,9 @@ Tree.prototype._find = function (currentNode, item) {
 };
 
 /**
- * @description Depth-first-search pre-order algorithm
- * @param  {[type]}   node     [description]
- * @param  {Function} callback [description]
- * @return {[type]}            [description]
+ * @description Depth-first-search pre-order traversal algorithm
+ * @param  {TreeNode} node The node to start listing from
+ * @param  {Function} callback Callback function to be executed on each listed node
  */
 Tree.prototype.dfsPreOrder = function (node, callback) {
     var children = node.getChildren();
@@ -128,6 +127,11 @@ Tree.prototype.dfsPreOrder = function (node, callback) {
     }, this);
 };
 
+/**
+ * @description Depth-first-search post-order traversal algorithm
+ * @param  {TreeNode} node The node to start listing from
+ * @param  {Function} callback Callback function to be executed on each listed node
+ */
 Tree.prototype.dfsPostOrder = function (node, callback) {
     var children = node.getChildren();
 
@@ -140,6 +144,11 @@ Tree.prototype.dfsPostOrder = function (node, callback) {
     }
 };
 
+/**
+ * @description Breath-first-search traversal algorithm (level order)
+ * @param  {TreeNode} node The node to start listing from
+ * @param  {Function} callback Callback function to be executed on each listed node
+ */
 Tree.prototype.bfs = function (root, callback) {
     var q = new Queue(),
         node,
