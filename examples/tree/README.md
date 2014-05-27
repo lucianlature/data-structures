@@ -34,7 +34,7 @@ tree.setRoot('foo');
 ---------------------------------------
 
 <a name="getRoot" />
-### `getRoot()`
+#### `getRoot()`
 
 Returns the root value of the tree.
 
@@ -45,12 +45,11 @@ tree.setRoot(new TreeNode('foo'));
 
 console.log(tree.getRoot().getData());
 //> foo
-});
 ```
 ---------------------------------------
 
 <a name="getNumberOfNodes" />
-### `getNumberOfNodes()`
+#### `getNumberOfNodes()`
 
 Returns the root value of the tree.
 
@@ -69,12 +68,11 @@ tree.setRoot(root);
 
 console.log(tree.getNumberOfNodes());
 //> 4
-});
 ```
 ---------------------------------------
 
 <a name="isEmpty" />
-### `getNumberOfNodes()`
+#### `getNumberOfNodes()`
 
 Returns the root value of the tree.
 
@@ -92,12 +90,11 @@ tree.setRoot(root);
 
 console.log(tree.isEmpty());
 //> false
-});
 ```
 ---------------------------------------
 
 <a name="search" />
-### `search()`
+#### `search()`
 
 Search for a given value inside tree.
 
@@ -119,12 +116,11 @@ console.log(tree.search('foobar'));
 
 console.log(tree.search('baz'));
 //> false
-});
 ```
 ---------------------------------------
 
 <a name="dfsPreOrder" />
-### `dfsPreOrder()`
+#### `dfsPreOrder()`
 
 Pre-Order traversal algorithm.
 
@@ -156,13 +152,12 @@ tree.dfsPreOrder(root, cb);
 //> foobaz
 //> bar
 //> foobar
-});
 ```
 
 ---------------------------------------
 
 <a name="dfsPostOrder" />
-### `dfsPostOrder()`
+#### `dfsPostOrder()`
 
 Post-Order traversal algorithm.
 
@@ -194,12 +189,11 @@ tree.dfsPostOrder(root, cb);
 //> foobar
 //> bar
 //> root
-});
 ```
 ---------------------------------------
 
 <a name="bfs" />
-### `bfs()`
+#### `bfs()`
 
 BFS traversal.
 
@@ -231,5 +225,4 @@ tree.bfs(root, cb);
 //> baz
 //> foobar
 //> foobaz
-});
 ```
