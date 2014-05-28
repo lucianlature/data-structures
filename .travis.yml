@@ -9,4 +9,4 @@ script:
   - gulp
 
 after_script:
-  - gulp coveralls && rm -rf ./coverage && gulp bump
+  - gulp coveralls && rm -rf ./coverage
