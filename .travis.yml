@@ -10,3 +10,7 @@ script:
 
 after_script:
   - gulp coveralls && rm -rf ./coverage
+
+after_success:
+  - "chmod +x util/dist.sh"
+  - "util/dist.sh"
