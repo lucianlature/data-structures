@@ -16,3 +16,4 @@
   git add -f .
   git commit -m "Travis dist $TRAVIS_BUILD_NUMBER pushed to master"
   git push -fq origin master
+  echo -e "Done with magic\n"

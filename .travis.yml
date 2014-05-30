@@ -1,16 +1,18 @@
 language: node_js
 node_js:
-  - "0.11"
-
+- '0.11'
 before_install:
-  - npm install -g gulp
-
+- npm install -g gulp
+before_script:
+- git config credential.helper 'store --file=.git/credentials'
+- echo 'https://${GH_TOKEN}:@github.com' > .git/credentials
 script:
-  - gulp
-
+- gulp
 after_script:
-  - gulp coveralls && rm -rf ./coverage
-
+- gulp coveralls && rm -rf ./coverage
 after_success:
-  - "chmod +x util/dist.sh"
-  - "util/dist.sh"
+- chmod +x util/dist.sh
+- util/dist.sh
+env:
+  global:
+    secure: pbdZ/whjgzinDiIkoJtcG5gMyM8tjkGoua6KDmeHnQ+UHVcGdf+36MEsKX241r0/knwNgkAfFLvbUZ/ZBv7pCeY8UI+Y00ta00gopVlrMX7Sgv3P0J89nmpOO6X0IZfrHRtR23IvExF8vZLvvncIf0Sla8u7pds6J2d1cTX3/p8=
