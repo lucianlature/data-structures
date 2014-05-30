@@ -4,6 +4,9 @@ node_js:
 before_install:
 - npm install -g gulp
 before_script:
+- echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+- git config --global user.email "lucian.lature@gmail.com"
+- git config --global user.name "lucianlature"
 - git config credential.helper 'store --file=.git/credentials'
 - echo 'https://${GH_TOKEN}:@github.com' > .git/credentials
 script:
