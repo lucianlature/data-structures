@@ -5,6 +5,7 @@ cd master
 git remote rm origin
 git remote add origin https://lucianlature:${GH_TOKEN}@github.com/lucianlature/data-structures.git
 
+rm -rf dist
 mkdir dist
 cd dist
 cp -Rf $HOME/dist/* .
