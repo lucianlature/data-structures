@@ -1,6 +1,6 @@
 {
   "name": "data-structures",
-  "version": "0.1.1",
+  "version": "0.1.5",
   "author": "Lucian Lature <lucian.lature@gmail.com>",
   "description": "JavaScript data structures written in vanilla JavaScript.",
   "repository": {
@@ -19,10 +19,11 @@
     "orderedlist",
     "stack",
     "tree",
-    "binary tree"
+    "binary tree",
+    "palindrome"
   ],
   "devDependencies": {
-    "mocha": "~1.19.0",
+    "mocha": "~1.20.0",
     "chai": "~1.9.1",
     "gulp": "~3.6.0",
     "gulp-util": "~2.2.14",
