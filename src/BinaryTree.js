@@ -19,8 +19,8 @@ function BinaryTree (newRoot) {
  * @return {*}
  */
 BinaryTree.prototype.getData = function () {
-  return this._root.getData();
-}
+    return this._root.getData();
+};
 
 /**
  * @description Returns the root node
@@ -28,7 +28,7 @@ BinaryTree.prototype.getData = function () {
  */
 BinaryTree.prototype.getRoot = function () {
     return this._root;
-}
+};
 
 /**
  * @description Set the root node
@@ -42,7 +42,7 @@ BinaryTree.prototype.setRoot = function (newRoot) {
  * @return {BinaryTree}
  */
 BinaryTree.prototype.getLeftChild = function () {
-  return this._leftChild;
+    return this._leftChild;
 };
 
 /**
@@ -63,7 +63,7 @@ BinaryTree.prototype.insertLeft = function (newNode) {
  * @return {BinaryTree}
  */
 BinaryTree.prototype.getRightChild = function () {
-  return this._rightChild;
+    return this._rightChild;
 };
 
 /**
@@ -86,14 +86,15 @@ BinaryTree.prototype.insertRight = function (newNode) {
  */
 BinaryTree.prototype.preorder = function preorder (callback) {
 
-  maybe(callback(this._root));
+    callback(this._root);
 
-  if (this._leftChild) {
-    maybe(this._leftChild.preorder(callback));
-  }
-  if (this._rightChild) {
-    maybe(this._rightChild.preorder(callback));
-  }
+    if (this._leftChild) {
+        maybe(this._leftChild.preorder(callback));
+    }
+
+    if (this._rightChild) {
+        maybe(this._rightChild.preorder(callback));
+    }
 };
 
 /**
@@ -102,13 +103,15 @@ BinaryTree.prototype.preorder = function preorder (callback) {
  * on each node
  */
 BinaryTree.prototype.postorder = function postorder (callback) {
-  if (this._leftChild) {
-    maybe(this._leftChild.postorder(callback));
-  }
-  if (this._rightChild) {
-    maybe(this._rightChild.postorder(callback));
-  }
-  maybe(callback(this._root));
+    if (this._leftChild) {
+        maybe(this._leftChild.postorder(callback));
+    }
+
+    if (this._rightChild) {
+        maybe(this._rightChild.postorder(callback));
+    }
+
+    callback(this._root);
 };
 
 /**
@@ -117,13 +120,15 @@ BinaryTree.prototype.postorder = function postorder (callback) {
  * on each node
  */
 BinaryTree.prototype.inorder = function inorder (callback) {
-  if (this._leftChild) {
-    maybe(this._leftChild.inorder(callback));
-  }
-  maybe(callback(this._root));
-  if (this._rightChild) {
-    maybe(this._rightChild.inorder(callback));
-  }
+    if (this._leftChild) {
+        maybe(this._leftChild.inorder(callback));
+    }
+
+    callback(this._root);
+
+    if (this._rightChild) {
+        maybe(this._rightChild.inorder(callback));
+    }
 };
 
 /**
@@ -132,17 +137,17 @@ BinaryTree.prototype.inorder = function inorder (callback) {
  * @param {Function} fn
  */
 function maybe (fn) {
-  return function () {
-    var i;
-    if (arguments.length === 0) {
-      return;
-    } else {
-      for (i = 0; i < arguments.length; ++i) {
-        if (arguments[i] === null) return;
-      }
-      return fn.apply(this, arguments);
+    return function () {
+        var i;
+        if (arguments.length === 0) {
+          return;
+        } else {
+            for (i = 0; i < arguments.length; ++i) {
+                if (arguments[i] === null) return;
+            }
+            return fn.apply(this, arguments);
+        }
     }
-  }
 }
 
 module.exports = BinaryTree;
