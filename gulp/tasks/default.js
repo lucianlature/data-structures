@@ -1,6 +1,5 @@
 'use strict';
 
-var gulp = require('gulp'),
-    bump = require('gulp-bump');
+var gulp = require('gulp');
 
-gulp.task('default', ['browserify', 'istanbul']);
+gulp.task('default', ['browserify', 'istanbul', 'bump'], function () {});
