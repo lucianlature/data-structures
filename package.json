@@ -41,7 +41,7 @@
     "gulp-coveralls": "~0.1.2",
     "istanbul": "~0.2.10",
     "coveralls": "~2.10.0",
-    "gulp-istanbul": "~0.1.1",
+    "gulp-istanbul": "~0.2.0",
     "gulp-bump": "~0.1.8"
   },
   "browserify": {
