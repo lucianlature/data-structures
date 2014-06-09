@@ -2,4 +2,4 @@
 
 var gulp = require('gulp');
 
-gulp.task('default', ['browserify', 'istanbul', 'bump'], function () {});
+gulp.task('default', ['browserify', 'istanbul'], function () {});
