@@ -19,12 +19,12 @@
   "boss": false,
   "debug": false,
   "eqnull": false,
-  "es3": true,
-  "esnext": false,
+  "esnext": true,
   "evil": false,
   "expr": false,
   "unused": true,
   "indent": 2,
+  "quotmark": "single",
   "funcscope": false,
   "globalstrict": false,
   "iterator": false,
@@ -48,7 +48,7 @@
   "dojo": false,
   "jquery": false,
   "mootools": false,
-  "node": false,
+  "node": true,
   "nonstandard": false,
   "prototypejs": false,
   "rhino": false,
@@ -63,6 +63,7 @@
   "maxstatements" : 1,
   "maxerr": 100
   "globals": {
+    "require": true,
     /* MOCHA */
     "describe": false,
     "it": false,

@@ -9,7 +9,7 @@ gulp.task('istanbul', function (cb) {
         .pipe(istanbul()) // Covering files
         .on('finish', function () {
             gulp.src(['test/*.spec.js'])
-                .pipe(mocha())
+                .pipe(mocha({reporter: 'dot'}))
                 .pipe(istanbul.writeReports()) // Creating the reports after tests runned
                 .on('end', cb);
         });

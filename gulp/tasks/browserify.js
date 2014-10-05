@@ -1,13 +1,13 @@
 'use strict';
 
-var browserify   = require('browserify'),
-    gStreamify   = require('gulp-streamify'),
-    uglify       = require('gulp-uglify'),
-    concat       = require('gulp-concat'),
-    gulp         = require('gulp'),
+var browserify = require('browserify'),
+    gStreamify = require('gulp-streamify'),
+    uglify = require('gulp-uglify'),
+    concat = require('gulp-concat'),
+    gulp = require('gulp'),
     handleErrors = require('../util/handleErrors'),
-    source       = require('vinyl-source-stream'),
-    glob         = require('glob');
+    source = require('vinyl-source-stream'),
+    glob = require('glob');
 
 gulp.task('browserify', function () {
 

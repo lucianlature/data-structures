@@ -1,9 +1,10 @@
 'use strict';
 
-var clean = require('gulp-clean');
-var gulp  = require('gulp');
+var gulp = require('gulp'),
+    del = require('del');
 
-gulp.task('clean', function () {
-	return gulp.src('./dist/*.js', { read: false })
-		.pipe(clean());
+gulp.task('clean', function (cb) {
+  del([
+    './dist/*.js',
+  ], cb);
 });
