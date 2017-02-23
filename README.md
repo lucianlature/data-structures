@@ -6,6 +6,8 @@
 Data Structures
 ===============
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/lucianlature/data-structures.svg)](https://greenkeeper.io/)
+
   * [Stack](https://github.com/lucianlature/data-structures/tree/master/examples/stack)
   * [Queue](https://github.com/lucianlature/data-structures/tree/master/examples/queue)
   * [Deque](https://github.com/lucianlature/data-structures/tree/master/examples/deque)
